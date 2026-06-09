@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnerships | Premium Supplies Ltd. T/A Megamart</title>
+<meta name="description" content="Partner with us — bring your brand into Tanzania's Northern Circuit hospitality market through our established distribution network.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg: #070C18; --surface: #0D1526; --s2: #121E35; --s3: #172645; --s4: #1E3058;
+  --red: #C0202A; --red-hi: #D42530; --red-glow: rgba(192,32,42,0.22);
+  --red-pale: rgba(192,32,42,0.08); --white: #FFFFFF; --gray: #8896B3; --gray-2: #C5CFDF;
+  --border: rgba(255,255,255,0.07); --border-2: rgba(255,255,255,0.13);
+  --font: 'Plus Jakarta Sans', sans-serif; --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t: 0.35s var(--ease);
+}
+body { font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--surface); } ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+a { text-decoration: none; color: inherit; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; background: rgba(7,12,24,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.4s; }
+nav.scrolled { background: rgba(7,12,24,0.98); }
+.nav-logo { display: flex; align-items: center; } .nav-logo img { height: 40px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.25s; white-space: nowrap; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); } .nav-links a.active { color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.nav-portal { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid rgba(255,255,255,0.25); color: var(--white); background: transparent; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap; }
+.nav-portal:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+.nav-cta { display: inline-flex; align-items: center; background: var(--red); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap; }
+.nav-cta:hover { background: var(--red-hi); transform: translateY(-1px); box-shadow: 0 6px 20px var(--red-glow); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 9999; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s ease; }
+#mobile-nav-overlay { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: #070C18; z-index: 9998; flex-direction: column; padding: 1rem 2rem 3rem; overflow-y: auto; border-top: 1px solid rgba(255,255,255,0.1); }
+#mobile-nav-overlay.show { display: flex; }
+.mob-links { list-style: none; margin: 0; padding: 0; flex: 1; }
+.mob-links li { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.mob-links li a { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; color: #fff; text-decoration: none; font-size: 1.05rem; font-weight: 600; }
+.mob-links li a:after { content: "→"; color: #8896B3; }
+.mob-bottom { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.mob-cta { display: block; text-align: center; background: var(--red); color: #fff; text-decoration: none; padding: 1rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.mob-portal { display: block; text-align: center; border: 1px solid rgba(255,255,255,0.25); color: #fff; text-decoration: none; padding: 0.9rem; border-radius: 8px; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.mob-info { display: flex; flex-direction: column; gap: 0.4rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.07); }
+.mob-info span { font-size: 0.78rem; color: #8896B3; } .mob-info a { color: #C5CFDF; text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+@media (max-width: 768px) { .hamburger { display: flex; } .nav-links { display: none; } .nav-right { display: none; } }
+
+/* ── HERO ── */
+#hero { padding: 12rem 0 8rem; position: relative; overflow: hidden; position: relative; overflow: hidden; background: radial-gradient(ellipse 70% 55% at 40% -5%, rgba(192,32,42,0.07) 0%, transparent 60%), var(--bg); }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 40% 50%, black 30%, transparent 70%); }
+.hero-inner { position: relative; z-index: 2; width: 100%; display: flex; align-items: center; gap: 3rem; padding-left: 6rem; }
+.hero-text { flex: 0 0 520px; }
+.hero-card-row { display: flex; gap: 1rem; flex: 1; overflow: hidden; padding-right: 3rem; }
+.h-card { flex: 1 1 0%; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: transform 0.25s, border-color 0.25s, box-shadow 0.3s; display: flex; flex-direction: column; }
+.h-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.14); box-shadow: 0 24px 56px rgba(0,0,0,0.5); }
+.h-card-top { height: 200px; min-height: 200px; max-height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; position: relative; }
+.h-card-badge { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.45); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.65rem; border-radius: 100px; }
+.h-card-body { padding: 1.4rem 1.5rem 1.6rem; flex: 1; }
+.h-card-brand { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.4rem; }
+.h-card-name { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.01em; line-height: 1.25; }
+.h-card-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+.eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E87880; margin-bottom: 1.1rem; }
+.eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--red); border-radius: 1px; display: inline-block; margin-bottom: 2px; }
+
+.hero-h1 { font-size: clamp(2rem, 3.5vw, 3.4rem); font-weight: 500; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1.4rem; }
+.hero-h1 span { color: var(--red); }
+.hero-sub { font-size: 1.05rem; color: var(--gray); line-height: 1.85; font-weight: 300; max-width: 600px; margin-bottom: 3rem; }
+.hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--red); color: var(--white); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; transition: var(--t); }
+.btn-primary:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 8px 24px var(--red-glow); }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border-2); color: var(--white); background: transparent; font-size: 0.8rem; font-weight: 600; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; transition: var(--t); }
+.btn-outline:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+
+/* ── SHARED SECTION STYLES ── */
+section { padding: 6rem 3rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E87880; margin-bottom: 0.85rem; }
+.section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--red); border-radius: 1px; display: inline-block; margin-bottom: 2px; }
+.section-h { font-size: clamp(1.7rem, 2.8vw, 2.3rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.018em; margin-bottom: 1rem; }
+.section-h span { color: var(--red-hi); }
+.section-p { font-size: 0.92rem; color: var(--gray); line-height: 1.8; font-weight: 300; max-width: 480px; }
+
+/* ── PARTNERSHIP TYPES (two ways) ── */
+#types { background: var(--surface); }
+.types-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.type-card {
+  background: var(--s3); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2.5rem; position: relative; overflow: hidden;
+  transition: border-color 0.3s, transform 0.25s;
+}
+.type-card:hover { border-color: rgba(192,32,42,0.3); transform: translateY(-3px); }
+.type-card::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--red); transform: scaleY(0); transform-origin: bottom;
+  transition: transform 0.4s var(--ease); border-radius: 0 2px 2px 0;
+}
+.type-card:hover::after { transform: scaleY(1); }
+.type-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #E87880; margin-bottom: 1.25rem; display: block; }
+
+.type-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.85rem; letter-spacing: -0.01em; line-height: 1.3; }
+.type-desc { font-size: 0.95rem; color: var(--gray); line-height: 1.8; font-weight: 300; }
+
+/* ── WHAT WE OFFER (left header + right numbered) ── */
+#offer { background: var(--bg); }
+.split-section { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+.split-left { position: sticky; top: 6rem; }
+.split-cards { display: flex; flex-direction: column; gap: 0; }
+.numbered-card {
+  padding: 2rem 0; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 64px 1fr; gap: 1.5rem; align-items: start;
+}
+.numbered-card:first-child { padding-top: 0; }
+.numbered-card:last-child { border-bottom: none; padding-bottom: 0; }
+.card-num { font-size: 1.6rem; font-weight: 800; color: var(--red); opacity: 0.4; line-height: 1; padding-top: 2px; }
+.card-body {}
+.card-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.55rem; }
+.card-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+/* ── PROCESS ── */
+#process { background: var(--surface); }
+.process-header { text-align: center; margin-bottom: 4rem; }
+.process-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.process-flow::before { content: ''; position: absolute; top: 36px; left: 12%; right: 12%; height: 1px; background: rgba(255,255,255,0.2); z-index: 0; }
+.proc-step { text-align: center; padding: 0 1.5rem; position: relative; z-index: 1; }
+.proc-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem; position: relative; font-size: 1.6rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+.proc-step:hover .proc-circle { border-color: rgba(255,255,255,0.5); background: rgba(0,0,0,0.35); }
+.proc-badge {
+  position: static;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); color: var(--white);
+  font-size: 0.85rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.proc-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--white); }
+.proc-desc { font-size: 0.78rem; color: rgba(255,255,255,0.75); line-height: 1.65; font-weight: 300; }
+
+/* ── CONTACT / ENQUIRY ── */
+#enquiry { background: var(--bg); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-left {}
+.contact-details { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+.c-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border); }
+.c-item:last-child { border-bottom: none; }
+.c-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 8px; background: var(--red-pale); border: 1px solid rgba(192,32,42,0.2); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.c-icon svg { width: 16px; height: 16px; fill: #E87880; }
+.c-label { display: block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.2rem; }
+.c-val { font-size: 0.88rem; color: var(--gray-2); line-height: 1.5; }
+.form-card { background: var(--s2); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; }
+.form-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+.form-sub { font-size: 0.78rem; color: var(--gray); margin-bottom: 1.75rem; line-height: 1.6; }
+.fg { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.fg label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-2); }
+.fg input, .fg select, .fg textarea { background: var(--s3); border: 1px solid var(--border-2); border-radius: 8px; color: var(--white); font-family: var(--font); font-size: 0.85rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: rgba(192,32,42,0.5); }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--gray); }
+.fg select option { background: var(--s3); }
+.fg textarea { resize: vertical; min-height: 100px; }
+.form-submit { width: 100%; margin-top: 0.5rem; padding: 0.95rem; background: var(--red); color: var(--white); border: none; border-radius: 8px; font-family: var(--font); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--t); }
+.form-submit:hover { background: var(--red-hi); }
+
+
+/* ── CATEGORY CARDS SLIDER ── */
+.cat-card {
+  width: 300px; flex-shrink: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s;
+  cursor: default;
+}
+.cat-card:hover { transform: translateY(-4px); border-color: rgba(192,32,42,0.3); }
+.cat-top {
+  height: 200px; position: relative;
+  background: var(--card-bg);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.cat-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(0,0,0,0.45); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.65rem; border-radius: 100px;
+}
+.cat-img { font-size: 4.5rem; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)); }
+.cat-body { padding: 1.4rem 1.5rem 1.6rem; }
+.cat-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; letter-spacing: -0.01em; }
+.cat-sub { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.6rem; }
+.cat-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.65; margin-bottom: 1.1rem; font-weight: 300; }
+
+
+
+/* hero portrait product cards */
+
+
+
+
+
+
+
+
+
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 4rem 3rem 2rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.footer-logo { margin-bottom: 1rem; margin-top: 0.75rem; }
+.footer-logo img { height: 48px; width: auto; }
+.footer-tagline { font-size: 0.82rem; color: var(--gray); line-height: 1.75; max-width: 280px; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.5rem; }
+.f-social { width: 34px; height: 34px; background: var(--s2); border: 1px solid var(--border); border-radius: 6px; display: grid; place-items: center; color: var(--gray); text-decoration: none; font-size: 0.65rem; font-weight: 700; transition: var(--t); }
+.f-social:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.f-col-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.f-links a { text-decoration: none; color: rgba(255,255,255,0.4); font-size: 0.83rem; transition: color 0.25s; }
+.f-links a:hover { color: var(--white); }
+.f-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+.f-contact-row { display: flex; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.55; align-items: flex-start; }
+.f-contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); min-width: 52px; margin-top: 2px; flex-shrink: 0; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.f-legal { display: flex; gap: 1.25rem; list-style: none; }
+.f-legal a { text-decoration: none; color: rgba(255,255,255,0.25); font-size: 0.72rem; transition: color 0.25s; }
+.f-legal a:hover { color: rgba(255,255,255,0.7); }
+/* ── WHATSAPP ── */
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 52px; height: 52px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform 0.25s; }
+.whatsapp-float:hover { transform: scale(1.1); } .whatsapp-float svg { width: 26px; height: 26px; fill: #fff; }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.05s; } .d2 { transition-delay: 0.12s; } .d3 { transition-delay: 0.19s; } .d4 { transition-delay: 0.26s; }
+
+@media (max-width: 1024px) {
+  
+  
+  .split-section { grid-template-columns: 1fr; gap: 3rem; }
+  .split-left { position: static; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .process-flow { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .process-flow::before { display: none; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: row; }
+  .types-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+  
+  section { padding: 4rem 1.5rem; }
+  #hero { padding: 8rem 1.5rem 4rem; }
+  .process-flow { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  footer { padding: 4rem 1.5rem 2rem; }
+  .fg-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd. T/A Megamart"></a>
+    <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html" >Products</a></li>
+    <li><a href="partners.html" class="active">Partnerships</a></li>
+    <li><a href="blog.html" >Blog &amp; News</a></li>
+    <li><a href="careers.html" >Careers</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="portal.html" class="nav-portal">Client Portal</a>
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
+  </button>
+</nav>
+<div id="mobile-nav-overlay">
+    <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+  <div class="mob-bottom">
+    <a href="portal.html" class="mob-portal">Client Portal</a>
+    <a href="index.html#contact" class="mob-cta">Get in Touch</a>
+    <div class="mob-info">
+      <span>Call us:</span>
+      <a href="tel:+255753300000">+255 753 300 000</a>
+      <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow">Brand Partnerships</div>
+      <h1 class="hero-h1">Bring Your Brand to<br><span>Tanzania's Northern Circuit.</span></h1>
+      <p class="hero-sub">We have spent over 20 years building relationships with the region's leading hotels, lodges, safari camps and restaurants. If you have a brand worth distributing, this network is yours to reach.</p>
+      <div class="hero-btns">
+        <a href="#enquiry" class="btn-primary">Submit a Partnership Enquiry &nbsp;→</a>
+        <a href="#types" class="btn-outline" style="text-transform:uppercase;letter-spacing:0.06em;font-size:0.78rem;">HOW IT WORKS &nbsp;↓</a>
+      </div>
+    </div>
+    <div class="hero-card-row">
+      <div class="h-card">
+        <div class="h-card-top" style="background: linear-gradient(145deg,#0d1f3c 0%,#152d54 100%); overflow:hidden;">
+          <img src="fruitville-juice.png" alt="Fruitville Juice" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <span class="h-card-badge">BEVERAGES</span>
+        </div>
+        <div class="h-card-body">
+          <div class="h-card-brand">Jetalk</div>
+          <div class="h-card-name">Fruitville Juice</div>
+          <div class="h-card-desc">100% natural mango juice — a refreshing staple for hotel breakfast menus and minibar selections across the Northern Circuit.</div>
+        </div>
+      </div>
+      <div class="h-card">
+        <div class="h-card-top" style="background: linear-gradient(145deg,#2a1a0a 0%,#3d2812 100%); overflow:hidden;">
+          <img src="rosho-cashew.png" alt="Rosho Cashew Butter" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <span class="h-card-badge" style="position:absolute;">CONDIMENTS</span>
+        </div>
+        <div class="h-card-body">
+          <div class="h-card-brand">Rosho</div>
+          <div class="h-card-name">Premium Cashew Butter</div>
+          <div class="h-card-desc">Rich, all-natural cashew butter made from locally sourced Tanzanian cashews. A premium product for health-conscious menus.</div>
+        </div>
+      </div>
+      <div class="h-card">
+        <div class="h-card-top" style="background: linear-gradient(145deg,#1a2a0d 0%,#263d12 100%); overflow:hidden;">
+          <img src="kericho-gold.png" alt="Kericho Gold Tea" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <span class="h-card-badge" style="position:absolute;">TEA</span>
+        </div>
+        <div class="h-card-body">
+          <div class="h-card-brand">Kericho Gold</div>
+          <div class="h-card-name">Kericho Gold</div>
+          <div class="h-card-desc">Kenya's finest tea — trusted across East Africa's top hotels and lodges for its clean, consistent flavour and premium presentation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO WAYS -->
+<section id="types" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="reveal" style="margin-bottom:3rem;">
+      <div class="section-eyebrow">Partnership Models</div>
+      <h2 class="section-h">Two ways to work with us</h2>
+      <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;font-weight:300;max-width:560px;margin-top:0.75rem;">We work with brands at every stage — from local producers looking to scale, to established names seeking a reliable route to market across Tanzania's Northern Circuit.</p>
+    </div>
+    <div class="types-grid">
+      <div class="type-card reveal d1">
+        <span class="type-label">Distribution Partner</span>
+        <div class="type-title">We Distribute Your Brand</div>
+        <p class="type-desc">You focus on production. We handle the rest. As your distribution partner, your products are placed directly into hotels, lodges, safari camps, restaurants and supermarkets across Arusha and the Northern Circuit — through relationships built over two decades.</p>
+      </div>
+      <div class="type-card reveal d2">
+        <span class="type-label">Sole Distribution</span>
+        <div class="type-title">Exclusive Representation in the Northern Circuit</div>
+        <p class="type-desc">For brands seeking a committed, exclusive presence in this market, we offer sole distribution agreements within the Northern Circuit. Your brand receives dedicated sales effort, warehousing and a team fully invested in your growth — with the credibility of an established local name behind it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categories" style="background: var(--bg); padding: 6rem 0 6rem;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 3rem;">
+    <div class="reveal" style="margin-bottom:3rem;">
+      <div class="section-eyebrow">What We Distribute</div>
+      <h2 class="section-h" style="max-width:640px;">From household names to <span>local rising brands</span></h2>
+      <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;font-weight:300;max-width:560px;margin-top:0.75rem;">We distribute across every major category — and we work with both internationally recognised names and local brands ready to grow. If the product is right, the size of the brand does not matter.</p>
+    </div>
+  </div>
+  <!-- Slider -->
+  <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;padding:0.5rem 0 1.5rem;scrollbar-width:none;">
+    <div style="display:flex;gap:1.25rem;padding:0 3rem;width:max-content;">
+
+      <!-- 1 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#0d1f3c 0%,#152d54 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">BEVERAGES</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="fruitville-juice.png" alt="Fruitville Juice" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Jetalk</div>
+          <div class="cat-name">Fruitville Juice</div>
+          <div class="cat-desc">100% natural mango juice — a refreshing staple for hotel breakfast menus and minibar selections across the Northern Circuit.</div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#2a1a0a 0%,#3d2812 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">CONDIMENTS</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="rosho-cashew.png" alt="Rosho Cashew Butter" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Rosho</div>
+          <div class="cat-name">Premium Cashew Butter</div>
+          <div class="cat-desc">Rich, all-natural cashew butter made from locally sourced Tanzanian cashews. A premium product for health-conscious menus.</div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#1a2a0d 0%,#263d12 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">TEA</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="kericho-gold.png" alt="Kericho Gold Tea" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Kericho Gold</div>
+          <div class="cat-name">Kericho Gold</div>
+          <div class="cat-desc">Kenya's finest tea — trusted across East Africa's top hotels and lodges for its clean, consistent flavour and premium presentation.</div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#1e1a0d 0%,#2e2814 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">BEVERAGES</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="nuziwa-milk.png" alt="Nuziwa Oat Milk" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Jetalk</div>
+          <div class="cat-name">Nuziwa Milks</div>
+          <div class="cat-desc">Plant-based almond milk crafted for the health-conscious hospitality market. Ideal for in-room amenities and specialty coffee menus.</div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#0d2530 0%,#123848 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">CONDIMENTS</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="bagamoyo-salt.png" alt="Bagamoyo Sea Salt" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Bagamoyo</div>
+          <div class="cat-name">Bagamoyo Sea Salts</div>
+          <div class="cat-desc">Artisan sea salts harvested along the Tanzanian coast — a premium finishing salt for fine dining kitchens and boutique hotels.</div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="cat-card" style="--card-bg: linear-gradient(145deg,#2a0d1f 0%,#3d1530 100%);">
+        <div class="cat-top">
+          <span class="cat-badge">BEVERAGES</span>
+          <div class="cat-img" style="width:100%;height:100%;overflow:hidden;"><img src="frosti-drink.png" alt="Frosti Fruit Drink" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        </div>
+        <div class="cat-body">
+          <div class="cat-sub">Jetalk</div>
+          <div class="cat-name">Frosti Fruit Drink</div>
+          <div class="cat-desc">Fruity, vibrant and refreshing — the go-to fruit drink for hospitality and retail operations across the region.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Scroll hint -->
+  <div style="text-align:center;margin-top:1.25rem;font-size:0.72rem;color:var(--gray);letter-spacing:0.08em;text-transform:uppercase;">Scroll to explore more categories →</div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background: var(--red); position: relative; overflow: hidden;">
+  <!-- subtle grid pattern overlay -->
+  <div style="position:absolute;inset:0;pointer-events:none;
+    background-image: linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 75%);
+    z-index:0;"></div>
+  <!-- radial fade to keep edges soft -->
+  <div style="position:absolute;inset:0;pointer-events:none;
+    background: radial-gradient(ellipse at 50% 50%, transparent 40%, rgba(150,15,20,0.45) 100%);
+    z-index:1;"></div>
+  <div class="section-inner" style="position:relative;z-index:2;">
+    <div class="process-header reveal">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.7);">HOW IT WORKS</div>
+      <h2 class="section-h" style="color:var(--white);">From Enquiry to Shelves in Four Steps</h2>
+    </div>
+    <div class="process-flow">
+      <div class="proc-step reveal d1">
+        <div class="proc-circle">
+          <span class="proc-badge">1</span>
+        </div>
+        <div class="proc-title">Submit an Enquiry</div>
+        <p class="proc-desc">Fill in the partnership form below with your brand, product range and what you are looking to achieve. The more detail the better.</p>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="proc-circle">
+          <span class="proc-badge">2</span>
+        </div>
+        <div class="proc-title">Discovery Conversation</div>
+        <p class="proc-desc">A member of our team gets in touch within 48 hours. We discuss the opportunity, understand your product and explore whether there is a strong fit.</p>
+      </div>
+      <div class="proc-step reveal d3">
+        <div class="proc-circle">
+          <span class="proc-badge">3</span>
+        </div>
+        <div class="proc-title">Agree Terms</div>
+        <p class="proc-desc">We agree on the scope — distribution area, exclusivity if applicable, pricing and timelines. Clear terms, no surprises.</p>
+      </div>
+      <div class="proc-step reveal d4">
+        <div class="proc-circle">
+          <span class="proc-badge">4</span>
+        </div>
+        <div class="proc-title">Go to Market</div>
+        <p class="proc-desc">Your product enters our network. We handle placement, reordering and ongoing client relationships — keeping you informed every step of the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2 class="section-h">Tell us about&nbsp;<span>your brand</span></h2>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.8;font-weight:300;margin-bottom:0;">We review every partnership enquiry personally. A member of our team will reach out to explore the opportunity with you.</p>
+        <div class="contact-details">
+          <div class="c-item">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div>
+              <span class="c-label">Email</span>
+              <span class="c-val">info@megamart.co.tz</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <span class="c-label">WhatsApp</span>
+              <span class="c-val">+255 762 800 805</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div>
+              <span class="c-label">Office</span>
+              <span class="c-val">Swahili Street, Arusha, Tanzania<br>P.O. Box 15865</span>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <div>
+              <span class="c-label">Phone</span>
+              <span class="c-val">+255 753 300 000 &nbsp;·&nbsp; +255 754 387 123</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="form-card">
+          <div class="form-title">Partnership Enquiry</div>
+          <div class="form-sub">We look forward to learning more about your brand.</div>
+          <div class="fg-row">
+            <div class="fg"><label>Your Name</label><input type="text" placeholder="Full name"></div>
+            <div class="fg"><label>Company / Brand</label><input type="text" placeholder="Brand or company name"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="you@brand.com"></div>
+          <div class="fg"><label>Instagram Handle</label><input type="text" placeholder="@yourbrand"></div>
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="+255 7XX XXX XXX"></div>
+          </div>
+          <div class="fg">
+            <label>Partnership Type</label>
+            <select>
+              <option value="" disabled selected>Select an option</option>
+              <option>Distribution Partner — you distribute my brand</option>
+              <option>Sole Distribution Agreement</option>
+              <option>Not sure — I'd like to discuss options</option>
+            </select>
+          </div>
+          <div class="fg"><label>Tell us about your brand &amp; products</label><textarea placeholder="Describe your brand, product range, current distribution and what you are looking for from this partnership..."></textarea></div>
+          <button class="form-submit" onclick="handleSubmit(this)">Submit Enquiry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></div>
+        <p class="footer-tagline">Tanzania's premier FMCG wholesale and distribution partner — delivering quality across the Northern Circuit for over two decades.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/premiumsuppliesltd" target="_blank" class="f-social">IG</a>
+          <a href="https://www.facebook.com/premiumsuppliesltd" target="_blank" class="f-social">FB</a>
+          <a href="https://www.linkedin.com/company/premium-supplies-ltd" target="_blank" class="f-social">IN</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Quick Links</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partners.html">Partnerships</a></li>
+          <li><a href="blog.html">Blog &amp; News</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <div class="f-contact">
+          <div class="f-contact-row"><span class="f-contact-label">Address</span><span>Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Phone</span><div>+255 753 300 000<br>+255 754 387 123<br>+255 762 800 805</div></div>
+          <div class="f-contact-row"><span class="f-contact-label">WhatsApp</span><span>+255 762 800 805</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved. · Arusha, Tanzania</span>
+      <ul class="f-legal"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  var ham = document.getElementById('ham-btn');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  ham.addEventListener('click', function() {
+    var isOpen = overlay.classList.toggle('show');
+    ham.querySelector('.bar1').style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+    ham.querySelector('.bar2').style.opacity = isOpen ? '0' : '1';
+    ham.querySelector('.bar3').style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      ham.querySelector('.bar1').style.transform = '';
+      ham.querySelector('.bar2').style.opacity = '1';
+      ham.querySelector('.bar3').style.transform = '';
+      document.body.style.overflow = '';
+    });
+  });
+  function handleSubmit(btn) {
+    btn.textContent = 'Enquiry Sent — We\'ll be in touch within 48 hours.';
+    btn.style.background = '#16a34a'; btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Submit Enquiry'; btn.style.background = ''; btn.disabled = false; }, 8000);
+  }
+</script>
+</body>
+</html>

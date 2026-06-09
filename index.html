@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Supplies Ltd. T/A Megamart | FMCG Wholesale & Distribution – Tanzania</title>
+<meta name="description" content="Tanzania's premier FMCG wholesale and distribution partner. Supplying hotels, lodges, safari camps, restaurants and supermarkets across the Northern Circuit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:       #070C18;
+  --surface:  #0D1526;
+  --s2:       #121E35;
+  --s3:       #172645;
+  --s4:       #1E3058;
+  --red:      #C0202A;
+  --red-hi:   #D42530;
+  --red-glow: rgba(192,32,42,0.22);
+  --red-pale: rgba(192,32,42,0.08);
+  --white:    #FFFFFF;
+  --gray:     #8896B3;
+  --gray-2:   #C5CFDF;
+  --border:   rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.13);
+  --font:     'Plus Jakarta Sans', sans-serif;
+  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t:        0.35s var(--ease);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(7,12,24,0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s;
+}
+nav.scrolled { background: rgba(7,12,24,0.98); }
+
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 40px; width: auto; display: block; margin: auto 0; }
+
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.65);
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em;
+  padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.25s; white-space: nowrap;
+}
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.nav-links a.active { color: var(--white); }
+
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.nav-portal {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); background: transparent;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); white-space: nowrap;
+}
+.nav-portal:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+.nav-cta {
+  display: inline-flex; align-items: center;
+  background: var(--red); color: var(--white);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap;
+}
+.nav-cta:hover { background: var(--red-hi); transform: translateY(-1px); box-shadow: 0 6px 20px var(--red-glow); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden; padding: 8rem 3rem 5rem;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 40% 50%, black 20%, transparent 70%);
+}
+.hero-accent {
+  position: absolute; top: 0; right: 0; width: 40%; height: 100%;
+  background: linear-gradient(135deg, var(--surface) 0%, var(--s2) 100%);
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  border-left: 1px solid var(--border);
+}
+.hero-glow {
+  position: absolute; pointer-events: none;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(163,29,35,0.12) 0%, transparent 70%);
+  top: -150px; right: -100px; filter: blur(80px);
+}
+.hero-redline {
+  position: absolute; left: 0; top: 0; width: 3px; height: 100%;
+  background: linear-gradient(180deg, transparent, var(--red), transparent);
+}
+.hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--red-pale); border: 1px solid rgba(163,29,35,0.3);
+  color: #E87880; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.35rem 0.9rem; border-radius: 100px; margin-bottom: 1.75rem;
+  animation: fadeUp 0.7s both;
+}
+.badge-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulseDot 2s infinite; }
+@keyframes pulseDot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.7)} }
+
+.hero-h1 {
+  font-size: clamp(2.6rem, 5vw, 4.8rem); font-weight: 400;
+  line-height: 1.08; letter-spacing: -0.02em; color: var(--white);
+  margin-bottom: 1.5rem; max-width: 780px; animation: fadeUp 0.7s 0.08s both;
+}
+.hero-h1 span { color: var(--red-hi); }
+.hero-sub {
+  font-size: 1rem; font-weight: 400; color: var(--gray);
+  line-height: 1.8; max-width: 520px; margin-bottom: 2.5rem; animation: fadeUp 0.7s 0.16s both;
+}
+.hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.24s both; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--red); color: var(--white);
+  font-family: var(--font); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 1.9rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 10px 30px var(--red-glow); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: var(--white);
+  font-family: var(--font); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 1.9rem; border-radius: 6px; text-decoration: none;
+  border: 1px solid var(--border-2); transition: var(--t);
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  animation: fadeUp 1s 0.6s both;
+}
+.hero-scroll span { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.scroll-line { width: 1px; height: 48px; background: linear-gradient(180deg, rgba(163,29,35,0.7), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+@keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+/* ── STATS ── */
+#stats { background: var(--red); padding: 1.4rem 3rem; }
+.stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
+.stat-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0.6rem 1rem; border-right: 1px solid rgba(255,255,255,0.2);
+}
+.stat-item:last-child { border-right: none; }
+.stat-val { font-size: 2.2rem; font-weight: 600; color: var(--white); line-height: 1; letter-spacing: -0.03em; margin-bottom: 0.2rem; }
+.stat-lbl { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+
+/* ── SECTIONS ── */
+section { padding: 7rem 3rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--red-hi); margin-bottom: 0.85rem;
+}
+.eyebrow::before { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.section-h { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 500; letter-spacing: -0.02em; color: var(--white); line-height: 1.1; }
+
+/* ── ABOUT ── */
+#about { background: var(--surface); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.about-visual { position: relative; }
+.about-frame {
+  width: 100%; aspect-ratio: 4/5;
+  background: var(--s2); border: 1px solid var(--border-2); border-radius: 6px; overflow: hidden; position: relative;
+}
+
+.about-badge {
+  position: absolute; bottom: -1.5rem; right: -1.5rem;
+  background: var(--red); padding: 1.5rem 1.75rem; border-radius: 6px; text-align: center; min-width: 140px;
+}
+.about-badge .num { font-size: 2.6rem; font-weight: 600; color: var(--white); line-height: 1; display: block; letter-spacing: -0.04em; }
+.about-badge .lbl { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); display: block; margin-top: 0.3rem; }
+
+.about-text p { font-size: 0.93rem; color: var(--gray); line-height: 1.85; margin-bottom: 1.1rem; }
+.about-text p strong { color: var(--gray-2); font-weight: 600; }
+.about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2rem; }
+.pillar {
+  padding: 1.1rem 1.25rem; background: var(--s2);
+  border-left: 3px solid var(--red); border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  border-radius: 0 6px 6px 0; transition: var(--t);
+}
+.pillar:hover { background: var(--s3); }
+.pillar-title { font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+.pillar-text { font-size: 0.78rem; color: var(--gray); line-height: 1.6; }
+
+/* ── INDUSTRIES ── */
+#industries { background: var(--bg); }
+.industries-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.5rem; }
+.industry-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 1rem;
+  transition: var(--t); position: relative; overflow: hidden;
+}
+.industry-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
+}
+.industry-card:hover { border-color: rgba(163,29,35,0.3); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.industry-card:hover::before { transform: scaleX(1); }
+.industry-num {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.industry-num::after { content:''; flex:1; height:1px; background: var(--border); }
+.industry-name { font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; line-height: 1.3; }
+.industry-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.75; }
+.industry-tags { display: flex; gap: 0.35rem; flex-wrap: nowrap; margin-top: auto; }
+.industry-tag {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--gray-2); background: var(--s3); border: 1px solid var(--border);
+  padding: 3px 7px; border-radius: 100px; white-space: nowrap;
+}
+
+/* ── WHY US ── */
+#why-us { background: var(--surface); }
+.why-header { margin-bottom: 3rem; }
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+.why-card {
+  background: var(--s2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 2.25rem 2rem; display: flex; flex-direction: column; gap: 1rem;
+  transition: var(--t); position: relative;
+}
+.why-card:hover { border-color: rgba(163,29,35,0.2); transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+.why-ghost-num {
+  position: absolute; top: 1.5rem; right: 1.75rem;
+  font-size: 4.5rem; font-weight: 800; color: rgba(255,255,255,0.03); line-height: 1; letter-spacing: -0.05em;
+}
+.why-num-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; background: var(--red-pale); border: 1px solid rgba(163,29,35,0.25);
+  border-radius: 6px; font-size: 0.72rem; font-weight: 800; color: var(--red-hi); letter-spacing: 0.04em; flex-shrink: 0;
+}
+.why-title { font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+.why-text { font-size: 0.83rem; color: var(--gray); line-height: 1.75; }
+
+/* ── CTA ── */
+#cta {
+  background: var(--red); padding: 7rem 3rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-pattern {
+  position: absolute; inset: 0; opacity: 0.07;
+  background-image: repeating-linear-gradient(45deg, var(--white) 0, var(--white) 1px, transparent 0, transparent 28px);
+  background-size: 28px 28px;
+}
+.cta-glow { position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); pointer-events:none; }
+.cta-inner { position: relative; max-width: 700px; margin: 0 auto; }
+.cta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 1rem; display: block; }
+.cta-h { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 500; letter-spacing: -0.02em; color: var(--white); line-height: 1.08; margin-bottom: 1.25rem; }
+.cta-sub { font-size: 0.97rem; color: rgba(255,255,255,0.75); line-height: 1.8; margin-bottom: 2.5rem; }
+.cta-btns { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+.btn-white { background: var(--white); color: var(--red); }
+.btn-white:hover { background: rgba(255,255,255,0.92); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.btn-ghost-w { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.45); }
+.btn-ghost-w:hover { border-color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+/* ── CONTACT ── */
+#contact { background: var(--bg); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+.contact-info-text { font-size: 0.9rem; color: var(--gray); line-height: 1.85; margin-top: 1rem; margin-bottom: 2rem; }
+.contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
+.c-item {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1rem 1.1rem; transition: var(--t);
+}
+.c-item:hover { border-color: rgba(163,29,35,0.2); }
+.c-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: var(--red-pale); border: 1px solid rgba(163,29,35,0.2);
+  border-radius: 6px; display: grid; place-items: center;
+}
+.c-icon svg { width: 16px; height: 16px; stroke: var(--red-hi); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.c-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red-hi); display: block; margin-bottom: 3px; }
+.c-val { font-size: 0.83rem; color: var(--gray-2); line-height: 1.55; }
+.form-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2.25rem; }
+.form-title { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.fg { margin-bottom: 1rem; }
+.fg label { display: block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 0.72rem 0.9rem;
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: 7px; font-family: var(--font); font-size: 0.86rem;
+  color: var(--white); outline: none; transition: border-color 0.25s; appearance: none;
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--gray); }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--red); background: var(--s3); }
+.fg select option { background: var(--surface); color: var(--white); }
+.fg textarea { resize: vertical; min-height: 105px; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.form-btn {
+  width: 100%; padding: 0.9rem; background: var(--red); color: var(--white);
+  border: none; border-radius: 7px; font-family: var(--font); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--t); margin-top: 0.25rem;
+}
+.form-btn:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 10px 28px var(--red-glow); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 5rem 3rem 2.5rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.footer-logo { margin-bottom: 1rem; margin-top: 0.75rem; }
+.footer-logo img { height: 48px; width: auto; }
+.footer-tagline { font-size: 0.82rem; color: var(--gray); line-height: 1.75; max-width: 280px; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.5rem; }
+.f-social { width: 34px; height: 34px; background: var(--s2); border: 1px solid var(--border); border-radius: 6px; display: grid; place-items: center; color: var(--gray); text-decoration: none; font-size: 0.65rem; font-weight: 700; transition: var(--t); }
+.f-social:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.f-col-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.f-links a { text-decoration: none; color: rgba(255,255,255,0.4); font-size: 0.83rem; transition: color 0.25s; }
+.f-links a:hover { color: var(--white); }
+.f-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+.f-contact-row { display: flex; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.55; align-items: flex-start; }
+.f-contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); min-width: 52px; margin-top: 2px; flex-shrink: 0; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.f-legal { display: flex; gap: 1.25rem; list-style: none; }
+.f-legal a { text-decoration: none; color: rgba(255,255,255,0.25); font-size: 0.72rem; transition: color 0.25s; }
+.f-legal a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── WHATSAPP ── */
+.whatsapp-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+  width: 56px; height: 56px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4); text-decoration: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s; animation: fadeUp 1s 1s both;
+}
+.whatsapp-float:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 14px 40px rgba(37,211,102,0.5); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: var(--white); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(26px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1{transition-delay:0.08s} .d2{transition-delay:0.16s} .d3{transition-delay:0.24s} .d4{transition-delay:0.32s}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 0 2rem; }
+  section { padding: 5rem 2rem; }
+  #hero, #stats, #cta, footer { padding-left: 2rem; padding-right: 2rem; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-badge { right: 0; }
+  .industries-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  nav { padding: 0 1.5rem; }
+  #hero { padding: 7rem 1.5rem 5rem; }
+  section { padding: 4rem 1.5rem; }
+  #stats { padding: 1.25rem 1.5rem; }
+  .stats-inner { grid-template-columns: repeat(2,1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .industries-grid, .why-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .fg-row { grid-template-columns: 1fr; }
+  footer { padding: 4rem 1.5rem 2rem; }
+  #cta { padding: 5rem 1.5rem; }
+}
+
+/* ── HAMBURGER MENU ── */
+
+
+/* ── MOBILE NAV ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 9999;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #070C18;
+  z-index: 9998;
+  flex-direction: column;
+  padding: 1rem 2rem 3rem;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+#mobile-nav-overlay.show {
+  display: flex;
+}
+.mob-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.mob-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mob-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-links li a:after { content: "→"; color: #8896B3; }
+.mob-bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mob-cta {
+  display: block;
+  text-align: center;
+  background: #C0202A;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-info span { font-size: 0.78rem; color: #8896B3; }
+.mob-info a { color: #C5CFDF; text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .nav-right { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd. T/A Megamart">
+  </a>
+    <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html" >Products</a></li>
+    <li><a href="partners.html" >Partnerships</a></li>
+    <li><a href="blog.html" >Blog &amp; News</a></li>
+    <li><a href="careers.html" >Careers</a></li>
+  </ul>
+  <div class="nav-right"><a href="portal.html" class="nav-portal">Client Portal</a><a href="#contact" class="nav-cta">Get in Touch</a></div>
+
+  <!-- Mobile Menu -->  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </button>
+</nav>
+  <div id="mobile-nav-overlay">
+      <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+    <div class="mob-bottom">
+      <a href="portal.html" class="mob-portal" style="display:block;text-align:center;border:1px solid rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:0.9rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font);margin-bottom:0.5rem;">Client Portal</a><a href="index.html#contact" class="mob-cta">Get in Touch</a>
+      <div class="mob-info">
+        <span>Call us:</span>
+        <a href="tel:+255753300000">+255 753 300 000</a>
+        <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+      </div>
+    </div>
+  </div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-redline"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="badge-dot"></div>Arusha, Tanzania · Trusted Since 2003</div>
+    <h1 class="hero-h1">The Supply Partner Behind Tanzania's Finest <span>Hotels, Lodges &amp; Camps.</span></h1>
+    <p class="hero-sub">Based in Arusha, Premium Supplies Ltd. keeps the Northern Circuit running. We deliver <strong style="color:var(--white);font-weight:700;">&nbsp;3,000+ quality products</strong> — from kitchen essentials to cleaning supplies — to the most demanding hospitality and retail businesses, reliably and on time.</p>
+    <div class="hero-actions">
+      <a href="products.html" class="btn-primary">Explore Products &nbsp;→</a>
+      <a href="#contact" class="btn-outline">Partner With Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+  <div class="stats-inner">
+    <div class="stat-item"><span class="stat-val">3,000+</span><span class="stat-lbl">Products</span></div>
+    <div class="stat-item"><span class="stat-val">Trusted</span><span class="stat-lbl">Clients</span></div>
+    <div class="stat-item"><span class="stat-val">20+</span><span class="stat-lbl">Years of Excellence</span></div>
+    <div class="stat-item"><span class="stat-val">Arusha</span><span class="stat-lbl">Tanzania Based</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-frame">
+        </div>
+        <div class="about-badge">
+          <span class="num">20</span>
+          <span class="lbl">Years in<br>Arusha, TZ</span>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="eyebrow">Who We Are</div>
+        <h2 class="section-h" style="margin-bottom:1.5rem">Tanzania's Trusted<br>Wholesale Partner</h2>
+        <div class="about-text">
+          <p>Premium Supplies Ltd. is Arusha's leading FMCG wholesale and distribution company, proudly serving businesses across the region's most demanding hospitality and retail sectors with <strong>uncompromising quality.</strong></p>
+          <p>We specialise in sourcing and distributing top-quality food and non-food products — from canned goods and baking essentials to spices and cleaning supplies.</p>
+          <p>Our mission is simple: build lasting strategic partnerships that drive your business forward, every single day.</p>
+        </div>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-title">Reliable Delivery</div>
+            <div class="pillar-text">Optimised supply chain ensuring timely delivery, every time.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-title">Strategic Partnerships</div>
+            <div class="pillar-text">We grow with our clients, building long-term relationships.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">Who We Serve</div>
+      <h2 class="section-h">The Industries <span style="color:var(--red-hi)">We Serve</span></h2>
+    </div>
+    <div class="industries-grid">
+      <div class="industry-card reveal d1">
+        <div class="industry-num">01</div>
+        <div class="industry-name">Hotels, Lodges &amp; Safari Camps</div>
+        <div class="industry-desc">From lodges in the Northern Circuit to safari camps across Tanzania — we supply premium hospitality establishments with consistent, reliable stock that keeps operations running smoothly.</div>
+        <div class="industry-tags"><span class="industry-tag">Food Ingredients</span><span class="industry-tag">Non-Food</span><span class="industry-tag">Bulk Orders</span></div>
+      </div>
+      <div class="industry-card reveal d2">
+        <div class="industry-num">02</div>
+        <div class="industry-name">Restaurants</div>
+        <div class="industry-desc">We keep commercial kitchens stocked and running. From dry goods and condiments to cleaning supplies, we deliver quality products on schedule so your team can focus on the food.</div>
+        <div class="industry-tags"><span class="industry-tag">Weekly Orders</span><span class="industry-tag">Dry Goods</span><span class="industry-tag">Cleaning Supplies</span></div>
+      </div>
+      <div class="industry-card reveal d3">
+        <div class="industry-num">03</div>
+        <div class="industry-name">Supermarkets</div>
+        <div class="industry-desc">We supply supermarkets with a broad range of food and non-food products, offering competitive wholesale pricing and dependable delivery.</div>
+        <div class="industry-tags"><span class="industry-tag">Import Lines</span><span class="industry-tag">Retail Ready</span><span class="industry-tag">Wholesale Pricing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="section-inner">
+    <div class="why-header reveal">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2 class="section-h">The Difference <span style="color:var(--red-hi)">We Make</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <div class="why-ghost-num">01</div>
+        <div class="why-num-badge">01</div>
+        <div class="why-title">Sourcing and Local Expertise</div>
+        <p class="why-text">Applying deep local market knowledge to source and select products that meet the precise demands of Tanzania's hospitality and retail sectors.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-ghost-num">02</div>
+        <div class="why-num-badge">02</div>
+        <div class="why-title">Reliable, On-Time Delivery</div>
+        <p class="why-text">Our optimised supply chain and experienced logistics team ensures your orders arrive when you need them — so you can focus on running your business with confidence.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <div class="why-ghost-num">03</div>
+        <div class="why-num-badge">03</div>
+        <div class="why-title">True Strategic Partnerships</div>
+        <p class="why-text">We invest in understanding your business. Through transparent communication and flexible solutions, we become a true extension of your procurement team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-pattern"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-inner reveal">
+    <span class="cta-label">Ready to Partner?</span>
+    <h2 class="cta-h">Let's Elevate Your Supply Chain Together.</h2>
+    <p class="cta-sub">Join the businesses across the Northern Circuit who trust Premium Supplies Ltd. for consistent quality, reliable delivery and exceptional service.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-primary btn-white">Get in Touch &nbsp;→</a>
+      <a href="tel:+255753300000" class="btn-outline btn-ghost-w">Call Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Get In Touch</div>
+        <h2 class="section-h" style="margin-bottom:1rem">Start a <span style="color:var(--red-hi)">Conversation</span></h2>
+        <p class="contact-info-text">Whether you are looking to place a wholesale order, request our product catalogue, or discuss a long-term supply partnership — we would love to hear from you.</p>
+        <div class="contact-details">
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div><span class="c-label">Location</span><span class="c-val">Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div><span class="c-label">Phone</span><span class="c-val">+255 753 300 000 · +255 754 387 123 · +255 762 800 805</span></div>
+          </div>
+          <div class="c-item">
+            <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.121 1.523 5.855L0 24l6.335-1.524A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.97 0-3.81-.538-5.388-1.472l-.386-.229-4.001.962.979-3.9-.252-.4A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg></div>
+            <div><span class="c-label">WhatsApp</span><span class="c-val">+255 762 800 805</span></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="form-card">
+          <div class="form-title">Send Us a Message</div>
+          <div class="fg-row">
+            <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
+            <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe"></div>
+          </div>
+          <div class="fg"><label>Business Name</label><input type="text" placeholder="Your Company Ltd."></div>
+          <div class="fg-row">
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="+255 7XX XXX XXX"></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="you@company.com"></div>
+          </div>
+          <div class="fg">
+            <label>Industry</label>
+            <select>
+              <option value="" disabled selected>Select your industry</option>
+              <option>Hotel / Lodge</option>
+              <option>Safari Camp</option>
+              <option>Restaurant</option>
+              <option>Supermarket</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea placeholder="Tell us about your product needs, order quantities, or any questions you have..."></textarea></div>
+          <button class="form-btn" onclick="handleSubmit(this)">Send Message — We'll Reply Within 24 Hours</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></div>
+        <p class="footer-tagline">Tanzania's premier FMCG wholesale and distribution partner — delivering quality across the Northern Circuit for over two decades.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/premiumsuppliesltd" target="_blank" class="f-social">IG</a>
+          <a href="https://www.facebook.com/premiumsuppliesltd" target="_blank" class="f-social">FB</a>
+          <a href="https://www.linkedin.com/company/premium-supplies-ltd" target="_blank" class="f-social">IN</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Quick Links</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <div class="f-contact">
+          <div class="f-contact-row"><span class="f-contact-label">Address</span><span>Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Phone</span><div>+255 753 300 000<br>+255 754 387 123<br>+255 762 800 805</div></div>
+          <div class="f-contact-row"><span class="f-contact-label">WhatsApp</span><span>+255 762 800 805</span></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved. · Arusha, Tanzania</span>
+      <ul class="f-legal"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+  function handleSubmit(btn) {
+    btn.textContent = 'Message Sent — We\'ll be in touch within 24 hours.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Send Message — We\'ll Reply Within 24 Hours'; btn.style.background = ''; btn.disabled = false; }, 6000);
+  }
+
+  // Hamburger menu
+  // Close on link click
+  document.querySelectorAll('.mobile-nav-links a, .mobile-cta-btn').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Mobile menu
+  var ham = document.getElementById('ham-btn');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  ham.addEventListener('click', function() {
+    var isOpen = overlay.classList.toggle('show');
+    ham.querySelector('.bar1').style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+    ham.querySelector('.bar2').style.opacity = isOpen ? '0' : '1';
+    ham.querySelector('.bar3').style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      ham.querySelector('.bar1').style.transform = '';
+      ham.querySelector('.bar2').style.opacity = '1';
+      ham.querySelector('.bar3').style.transform = '';
+      document.body.style.overflow = '';
+    });
+  });
+
+</script>
+</body>
+</html>

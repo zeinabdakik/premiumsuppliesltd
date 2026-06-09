@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | Premium Supplies Ltd. T/A Megamart</title>
+<meta name="description" content="Join the team at Premium Supplies Ltd. — Tanzania's leading FMCG wholesale and distribution company. We are growing and we want ambitious, people-focused professionals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg:       #070C18;
+  --surface:  #0D1526;
+  --s2:       #121E35;
+  --s3:       #172645;
+  --s4:       #1E3058;
+  --red:      #C0202A;
+  --red-hi:   #D42530;
+  --red-glow: rgba(192,32,42,0.22);
+  --red-pale: rgba(192,32,42,0.08);
+  --white:    #FFFFFF;
+  --gray:     #8896B3;
+  --gray-2:   #C5CFDF;
+  --border:   rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.13);
+  --font:     'Plus Jakarta Sans', sans-serif;
+  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t:        0.35s var(--ease);
+}
+body { font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; background: rgba(7,12,24,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.4s; box-sizing: border-box; }
+nav.scrolled { background: rgba(7,12,24,0.98); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 40px; width: auto; display: block; margin: auto 0; }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.25s; white-space: nowrap; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.nav-links a.active { color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.nav-portal {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); background: transparent;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); white-space: nowrap;
+}
+.nav-portal:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+.nav-cta { display: inline-flex; align-items: center; background: var(--red); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap; }
+.nav-cta:hover { background: var(--red-hi); transform: translateY(-1px); box-shadow: 0 6px 20px var(--red-glow); }
+
+
+
+/* ── PAGE HERO ── */
+#page-hero {
+  padding: 10rem 3rem 6rem;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 70%); }
+.page-hero-glow { position: absolute; pointer-events: none; width: 600px; height: 400px; background: radial-gradient(circle, rgba(192,32,42,0.1) 0%, transparent 70%); top: 0; left: 50%; transform: translateX(-50%); filter: blur(60px); }
+.hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 1rem; }
+.page-eyebrow::before { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.page-h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 500; letter-spacing: -0.025em; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
+.page-h1 span { color: var(--red-hi); }
+.page-sub { font-size: 0.97rem; color: var(--gray); line-height: 1.85; margin-bottom: 2rem; }
+
+/* Hero right — values cards */
+.hero-values { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.value-card:hover { border-color: rgba(192,32,42,0.25); background: var(--s2); }
+
+
+.value-text  { font-size: 0.75rem; color: var(--gray); line-height: 1.6; }
+
+/* ── WHY JOIN US ── */
+#why-join { padding: 6rem 3rem; background: var(--surface); }
+.why-join-inner { max-width: 1200px; margin: 0 auto; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.85rem; }
+.section-eyebrow::before { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.section-h { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -0.02em; color: var(--white); line-height: 1.1; margin-bottom: 3rem; }
+.section-h span { color: var(--red-hi); }
+.perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.perk-card {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem 1.75rem;
+  display: flex; flex-direction: column; gap: 0.75rem;
+  transition: var(--t); position: relative;
+}
+.perk-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform 0.4s var(--ease); border-radius:2px 2px 0 0; }
+.perk-card:hover { border-color: rgba(192,32,42,0.2); transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+.perk-card:hover::before { transform: scaleX(1); }
+.perk-icon { width: 40px; height: 40px; background: var(--red-pale); border: 1px solid rgba(192,32,42,0.2); border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; }
+.perk-icon svg { width: 18px; height: 18px; stroke: var(--red-hi); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.perk-title { font-size: 0.95rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
+.perk-text  { font-size: 0.8rem; color: var(--gray); line-height: 1.7; }
+
+/* ── OPEN ROLES ── */
+#open-roles { padding: 6rem 3rem; background: var(--bg); }
+.roles-inner { max-width: 1200px; margin: 0 auto; }
+.roles-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; gap: 2rem; }
+.roles-count { font-size: 0.75rem; font-weight: 600; color: var(--gray); letter-spacing: 0.06em; padding: 0.4rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; }
+.roles-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.role-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 2rem 2.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  transition: var(--t); position: relative; overflow: hidden;
+}
+.role-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--red); transform:scaleY(0); transform-origin:bottom; transition:transform 0.4s var(--ease); }
+.role-card:hover { border-color: rgba(192,32,42,0.25); transform: translateX(4px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+.role-card:hover::before { transform: scaleY(1); }
+
+.role-info { flex: 1; }
+.role-dept { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.4rem; display: block; }
+.role-title { font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.role-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.7; max-width: 560px; }
+.role-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.85rem; }
+.role-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-2); background: var(--s2); border: 1px solid var(--border); padding: 3px 9px; border-radius: 100px; }
+
+.role-action { flex-shrink: 0; }
+.apply-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--red); color: var(--white);
+  font-family: var(--font); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); white-space: nowrap;
+}
+.apply-btn:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 8px 24px var(--red-glow); }
+
+/* ── APPLICATION SECTION ── */
+#apply { padding: 6rem 3rem; background: var(--surface); border-top: 1px solid var(--border); }
+.apply-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+.apply-text { }
+.apply-desc { font-size: 0.92rem; color: var(--gray); line-height: 1.85; margin-top: 1rem; margin-bottom: 1.75rem; }
+.apply-contact { background: var(--s2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.apply-contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red-hi); }
+.apply-contact-email { font-size: 1rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -0.01em; }
+.apply-contact-email:hover { color: var(--red-hi); }
+.apply-contact-sub { font-size: 0.75rem; color: var(--gray); }
+
+.apply-form { background: var(--s2); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; }
+.apply-form-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+.apply-form-sub { font-size: 0.78rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6; }
+.fg { margin-bottom: 1rem; }
+.fg label { display: block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.fg input, .fg select, .fg textarea { width: 100%; padding: 0.72rem 0.9rem; background: var(--s3); border: 1px solid var(--border); border-radius: 8px; font-family: var(--font); font-size: 0.86rem; color: var(--white); outline: none; transition: border-color 0.25s; appearance: none; }
+.fg input::placeholder, .fg textarea::placeholder { color: var(--gray); }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--red); background: var(--s4); }
+.fg select option { background: var(--s2); color: var(--white); }
+.fg textarea { resize: vertical; min-height: 105px; }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.apply-btn-submit { width: 100%; padding: 0.9rem; background: var(--red); color: var(--white); border: none; border-radius: 8px; font-family: var(--font); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--t); margin-top: 0.25rem; }
+.apply-btn-submit:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 10px 28px var(--red-glow); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 5rem 3rem 2.5rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.footer-logo { margin-bottom: 1rem; margin-top: 0.75rem; }
+.footer-logo img { height: 48px; width: auto; }
+.footer-tagline { font-size: 0.82rem; color: var(--gray); line-height: 1.75; max-width: 280px; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.5rem; }
+.f-social { width: 34px; height: 34px; background: var(--s2); border: 1px solid var(--border); border-radius: 6px; display: grid; place-items: center; color: var(--gray); text-decoration: none; font-size: 0.65rem; font-weight: 700; transition: var(--t); }
+.f-social:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.f-col-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.f-links a { text-decoration: none; color: rgba(255,255,255,0.4); font-size: 0.83rem; transition: color 0.25s; }
+.f-links a:hover { color: var(--white); }
+.f-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+.f-contact-row { display: flex; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.55; align-items: flex-start; }
+.f-contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); min-width: 52px; margin-top: 2px; flex-shrink: 0; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.f-legal { display: flex; gap: 1.25rem; list-style: none; }
+.f-legal a { text-decoration: none; color: rgba(255,255,255,0.25); font-size: 0.72rem; transition: color 0.25s; }
+.f-legal a:hover { color: rgba(255,255,255,0.7); }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s var(--ease); }
+.whatsapp-float:hover { transform: scale(1.1) translateY(-2px); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: var(--white); }
+
+/* Animations */
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(26px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1{transition-delay:0.08s} .d2{transition-delay:0.16s} .d3{transition-delay:0.24s}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  nav { padding: 0 2rem; }
+  #page-hero, #why-join, #open-roles, #apply, footer { padding-left: 2rem; padding-right: 2rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .perks-grid { grid-template-columns: 1fr 1fr; }
+  .apply-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  nav { padding: 0 1.5rem; }
+  #page-hero { padding: 8rem 1.5rem 4rem; }
+  #why-join, #open-roles, #apply { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .perks-grid { grid-template-columns: 1fr; }
+  .role-card { flex-direction: column; align-items: flex-start; }
+  .fg-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  footer { padding: 4rem 1.5rem 2rem; }
+}
+
+/* ── MOBILE NAV ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 9999;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #070C18;
+  z-index: 9998;
+  flex-direction: column;
+  padding: 1rem 2rem 3rem;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+#mobile-nav-overlay.show {
+  display: flex;
+}
+.mob-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.mob-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mob-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-links li a:after { content: "→"; color: #8896B3; }
+.mob-bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mob-cta {
+  display: block;
+  text-align: center;
+  background: #C0202A;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-info span { font-size: 0.78rem; color: #8896B3; }
+.mob-info a { color: #C5CFDF; text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .nav-right { display: none; }
+}
+
+
+.fg input[type="file"] {
+  background: var(--s3); border: 1px solid var(--border-2); border-radius: 8px;
+  color: var(--gray-2); font-family: var(--font); font-size: 0.82rem;
+  padding: 0.65rem 1rem; cursor: pointer; width: 100%;
+}
+.fg input[type="file"]::file-selector-button {
+  background: var(--red); color: #fff; border: none;
+  padding: 0.3rem 0.85rem; border-radius: 5px; font-family: var(--font);
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; margin-right: 0.75rem; transition: background 0.2s;
+}
+.fg input[type="file"]::file-selector-button:hover { background: var(--red-hi); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd. T/A Megamart"></a>
+    <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html" >Products</a></li>
+    <li><a href="partners.html" >Partnerships</a></li>
+    <li><a href="blog.html" >Blog &amp; News</a></li>
+    <li><a href="careers.html" class="active">Careers</a></li>
+  </ul>
+  <div class="nav-right"><a href="portal.html" class="nav-portal">Client Portal</a><a href="contact.html" class="nav-cta">Get in Touch</a></div>  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </button>
+</nav>
+  <div id="mobile-nav-overlay">
+      <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+    <div class="mob-bottom">
+      <a href="portal.html" class="mob-portal" style="display:block;text-align:center;border:1px solid rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:0.9rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font);margin-bottom:0.5rem;">Client Portal</a><a href="index.html#contact" class="mob-cta">Get in Touch</a>
+      <div class="mob-info">
+        <span>Call us:</span>
+        <a href="tel:+255753300000">+255 753 300 000</a>
+        <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+      </div>
+    </div>
+  </div>
+
+<!-- PAGE HERO -->
+<section id="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="hero-inner">
+    <div style="max-width:620px;">
+      <div class="page-eyebrow">Join Our Team</div>
+      <h1 class="page-h1">Grow With a Company That <span>Invests in Its People.</span></h1>
+      <p class="page-sub">At Premium Supplies Ltd., we believe that our people are what keeps the Northern Circuit running. We are building a team of ambitious, driven professionals who take pride in what they do and want to grow with a company that is going places. If that sounds like you, we want to hear from you.</p>
+      <a href="#open-roles" class="apply-btn" style="margin-top:1.5rem;display:inline-flex;">View Open Positions &nbsp;↓</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN US -->
+<section id="why-join">
+  <div class="why-join-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Why Premium Supplies</div>
+      <h2 class="section-h">Where Ambition Meets <span>Opportunity</span></h2>
+    </div>
+    <div class="perks-grid">
+      <div class="perk-card reveal d1">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="perk-title">Fast-Moving Environment</div>
+        <div class="perk-text">We operate in a fast-paced industry with real responsibility from day one. No two days are the same and there is always opportunity to step up.</div>
+      </div>
+      <div class="perk-card reveal d2">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="perk-title">Collaborative Culture</div>
+        <div class="perk-text">We are a close-knit team that works together, supports one another and celebrates wins together. Culture matters here — not just output.</div>
+      </div>
+      <div class="perk-card reveal d3">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="perk-title">Career Progression</div>
+        <div class="perk-text">As the business grows, so do the opportunities. We promote from within wherever possible and support our team's long-term development.</div>
+      </div>
+      <div class="perk-card reveal d1">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="perk-title">Real Responsibility</div>
+        <div class="perk-text">We trust our team. You will have genuine ownership of your role from the start — not just tasks, but outcomes that matter to the business.</div>
+      </div>
+      <div class="perk-card reveal d2">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="perk-title">Stable &amp; Established</div>
+        <div class="perk-text">With over 20 years in business and a trusted name across the Northern Circuit, you are joining a company with deep roots and a strong future.</div>
+      </div>
+      <div class="perk-card reveal d3">
+        <div class="perk-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="perk-title">Based in Arusha</div>
+        <div class="perk-text">Work at the heart of Tanzania's Northern Circuit — Arusha is a vibrant, growing city and the gateway to some of Africa's most iconic destinations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES -->
+<section id="open-roles">
+  <div class="roles-inner">
+    <div class="roles-header reveal">
+      <div>
+        <div class="section-eyebrow">Open Positions</div>
+        <h2 class="section-h">Current <span>Opportunities</span></h2>
+      </div>
+      <span class="roles-count">2 Open Roles</span>
+    </div>
+    <div class="roles-list">
+
+      <!-- Role 1 -->
+      <div class="role-card reveal">
+        <div class="role-info">
+          <span class="role-dept">Sales &amp; Business Development</span>
+          <div class="role-title">Sales & Business Development Executive</div>
+          <div class="role-desc">We are looking for a driven and commercially minded sales professional to grow our client base across Arusha and the Northern Circuit. You will be responsible for identifying new business opportunities, managing key accounts and building long-term relationships with hotels, lodges, restaurants and supermarkets.</div>
+          <div class="role-tags">
+            <span class="role-tag">Full Time</span>
+            <span class="role-tag">Arusha</span>
+            <span class="role-tag">Sales</span>
+            <span class="role-tag">B2B</span>
+          </div>
+        </div>
+        <div class="role-action">
+          <a href="#apply" class="apply-btn">Apply Now →</a>
+        </div>
+      </div>
+
+
+
+      <!-- Role 3 -->
+      <div class="role-card reveal d1">
+        <div class="role-info">
+          <span class="role-dept">Marketing &amp; Digital</span>
+          <div class="role-title">Social Media Manager</div>
+          <div class="role-desc">We are looking for a creative and strategic social media professional to build and manage the online presence of Premium Supplies Ltd. across Instagram, Facebook and LinkedIn. You will create content, engage our audience and help position us as the go-to wholesale partner for Tanzania's hospitality and retail sectors.</div>
+          <div class="role-tags">
+            <span class="role-tag">Full Time</span>
+            <span class="role-tag">Arusha</span>
+            <span class="role-tag">Social Media</span>
+            <span class="role-tag">Content</span>
+            <span class="role-tag">Digital</span>
+          </div>
+        </div>
+        <div class="role-action">
+          <a href="#apply" class="apply-btn">Apply Now →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION SECTION -->
+<section id="apply">
+  <div class="apply-inner">
+    <div class="apply-text reveal">
+      <div class="section-eyebrow">Apply Now</div>
+      <h2 class="section-h">Ready to <span>Join Us?</span></h2>
+      <p class="apply-desc">Send your CV and a short cover note telling us why you are the right fit. We read every application and respond to every candidate. No recruitment agencies — direct applications only.</p>
+      <div class="apply-contact">
+        <span class="apply-contact-label">Send your application directly to</span>
+        <a href="mailto:careers@megamart.co.tz" class="apply-contact-email">careers@megamart.co.tz</a>
+        
+      </div>
+    </div>
+    <div class="apply-form reveal d2">
+      <div class="apply-form-title">Apply Online</div>
+      <div class="apply-form-sub">Fill in the form below and attach your CV. We will be in touch within 5 working days.</div>
+      <div class="fg-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe"></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="you@email.com"></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+255 7XX XXX XXX"></div>
+      <div class="fg">
+        <label>Position Applying For</label>
+        <select>
+          <option value="" disabled selected>Select a position</option>
+          <option>Sales & Business Development Executive</option>
+          <option>Social Media Manager</option>
+        </select>
+      </div>
+      <div class="fg"><label>Why do you want to join Premium Supplies Ltd.?</label><textarea placeholder="Tell us a little about yourself and why you are a great fit for this role..."></textarea></div>
+            <div class="fg">
+        <label>Upload Your CV</label>
+        <input type="file" accept=".pdf,.doc,.docx" id="cv-upload">
+      </div>
+      <button class="apply-btn-submit" onclick="handleSubmit(this)">Submit Application</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></div>
+        <p class="footer-tagline">Tanzania's premier FMCG wholesale and distribution partner — delivering quality across the Northern Circuit for over two decades.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/premiumsuppliesltd" target="_blank" class="f-social">IG</a>
+          <a href="https://www.facebook.com/premiumsuppliesltd" target="_blank" class="f-social">FB</a>
+          <a href="https://www.linkedin.com/company/premium-supplies-ltd" target="_blank" class="f-social">IN</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Quick Links</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <div class="f-contact">
+          <div class="f-contact-row"><span class="f-contact-label">Address</span><span>Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Phone</span><div>+255 753 300 000<br>+255 754 387 123<br>+255 762 800 805</div></div>
+          <div class="f-contact-row"><span class="f-contact-label">WhatsApp</span><span>+255 762 800 805</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Careers</span><a href="mailto:careers@megamart.co.tz" style="color:var(--gray-2);text-decoration:none;">careers@megamart.co.tz</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved. · Arusha, Tanzania</span>
+      <ul class="f-legal"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  document.querySelectorAll('.mobile-nav-links a, .mobile-cta-btn').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+  function handleSubmit(btn) {
+    btn.textContent = 'Application Submitted — We\'ll be in touch within 5 working days.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Submit Application'; btn.style.background = ''; btn.disabled = false; }, 7000);
+  }
+
+  // Mobile menu
+  var ham = document.getElementById('ham-btn');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  ham.addEventListener('click', function() {
+    var isOpen = overlay.classList.toggle('show');
+    ham.querySelector('.bar1').style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+    ham.querySelector('.bar2').style.opacity = isOpen ? '0' : '1';
+    ham.querySelector('.bar3').style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      ham.querySelector('.bar1').style.transform = '';
+      ham.querySelector('.bar2').style.opacity = '1';
+      ham.querySelector('.bar3').style.transform = '';
+      document.body.style.overflow = '';
+    });
+  });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Portal | Premium Supplies Ltd. T/A Megamart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#070C18;--surface:#0D1526;--s2:#121E35;--s3:#172645;--s4:#1E3058;
+  --red:#C0202A;--red-hi:#D42530;--red-glow:rgba(192,32,42,0.22);--red-pale:rgba(192,32,42,0.08);
+  --white:#FFFFFF;--gray:#8896B3;--gray-2:#C5CFDF;
+  --border:rgba(255,255,255,0.07);--border-2:rgba(255,255,255,0.13);
+  --font:'Plus Jakarta Sans',sans-serif;--ease:cubic-bezier(0.25,0.46,0.45,0.94);--t:0.35s var(--ease);
+}
+body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--surface);}::-webkit-scrollbar-thumb{background:var(--red);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(7,12,24,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.4s;}
+nav.scrolled{background:rgba(7,12,24,0.98);}
+.nav-logo{display:flex;align-items:center;}.nav-logo img{height:40px;width:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.65);font-size:0.78rem;font-weight:500;letter-spacing:0.02em;padding:0.45rem 0.85rem;border-radius:6px;transition:all 0.25s;white-space:nowrap;}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,0.06);}.nav-links a.active{color:var(--white);}
+.nav-right{display:flex;align-items:center;gap:0.6rem;}
+.nav-portal{display:inline-flex;align-items:center;gap:0.4rem;border:1px solid rgba(255,255,255,0.25);color:var(--white);background:transparent;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:6px;text-decoration:none;transition:var(--t);white-space:nowrap;}
+.nav-portal:hover,.nav-portal.active{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.45);}
+.nav-cta{display:inline-flex;align-items:center;background:var(--red);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.55rem 1.25rem;border-radius:6px;text-decoration:none;transition:var(--t);white-space:nowrap;}
+.nav-cta:hover{background:var(--red-hi);transform:translateY(-1px);box-shadow:0 6px 20px var(--red-glow);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:9999;}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease;}
+#mobile-nav-overlay{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:#070C18;z-index:9998;flex-direction:column;padding:1rem 2rem 3rem;overflow-y:auto;border-top:1px solid rgba(255,255,255,0.1);}
+#mobile-nav-overlay.show{display:flex;}
+.mob-links{list-style:none;margin:0;padding:0;flex:1;}
+.mob-links li{border-bottom:1px solid rgba(255,255,255,0.07);}
+.mob-links li a{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;color:#fff;text-decoration:none;font-size:1.05rem;font-weight:600;}
+.mob-links li a:after{content:"→";color:#8896B3;}
+.mob-bottom{margin-top:2rem;display:flex;flex-direction:column;gap:0.75rem;}
+.mob-cta{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;padding:1rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;}
+.mob-portal{display:block;text-align:center;border:1px solid rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:0.9rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;}
+.mob-info{display:flex;flex-direction:column;gap:0.4rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.07);}
+.mob-info span{font-size:0.78rem;color:#8896B3;}.mob-info a{color:#C5CFDF;text-decoration:none;font-size:0.82rem;font-weight:500;}
+@media(max-width:768px){.hamburger{display:flex;}.nav-links{display:none;}.nav-right{display:none;}}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:9rem 3rem 6rem;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(192,32,42,0.08) 0%,transparent 60%),var(--bg);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 40%,black 30%,transparent 75%);}
+.hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--red-pale);border:1px solid rgba(192,32,42,0.3);color:#E87880;font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:100px;margin-bottom:1.75rem;}
+.badge-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulseDot 2s infinite;}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.7)}}
+.hero-title{font-size:clamp(3rem,6vw,5.5rem);font-weight:600;line-height:1.05;letter-spacing:-0.035em;margin-bottom:1.5rem;}
+.hero-title span{color:var(--red);}
+.hero-sub{font-size:1.05rem;color:var(--gray);line-height:1.8;font-weight:300;max-width:580px;margin:0 auto 2.5rem;}
+.hero-btns{display:flex;gap:0.9rem;flex-wrap:wrap;justify-content:center;margin-bottom:5rem;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--red);color:var(--white);font-size:0.82rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 2rem;border-radius:8px;text-decoration:none;transition:var(--t);}
+.btn-primary:hover{background:var(--red-hi);transform:translateY(-2px);box-shadow:0 8px 24px var(--red-glow);}
+.btn-ghost{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--border-2);color:var(--white);background:transparent;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:0.85rem 2rem;border-radius:8px;text-decoration:none;transition:var(--t);}
+.btn-ghost:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.3);}
+.hero-stats-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:16px;overflow:hidden;background:rgba(255,255,255,0.02);}
+.hero-stat-card{padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border);transition:background 0.2s;}
+.hero-stat-card:last-child{border-right:none;}
+.hero-stat-card:hover{background:rgba(255,255,255,0.03);}
+.hero-stat-val{font-size:2.4rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:-0.03em;margin-bottom:0.4rem;}
+.hero-stat-lbl{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);}
+
+/* MARQUEE */
+.brands-section{padding:2.5rem 0;background:var(--red);overflow:hidden;}
+.brands-section-label{text-align:center;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:1.25rem;}
+.marquee-track{display:flex;width:100%;overflow:hidden;}
+.marquee-inner{display:flex;gap:1.5rem;animation:marqueeScroll 28s linear infinite;white-space:nowrap;}
+.marquee-inner:hover{animation-play-state:paused;}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-pill{display:inline-flex;align-items:center;gap:0.6rem;flex-shrink:0;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);border-radius:100px;padding:0.5rem 1.25rem;font-size:0.82rem;font-weight:600;color:var(--white);transition:all 0.2s;}
+.marquee-pill:hover{background:rgba(255,255,255,0.25);}
+.marquee-pill-dot{width:7px;height:7px;border-radius:50%;opacity:0.9;}
+
+/* SECTIONS */
+section{padding:6rem 3rem;}
+.container{max-width:1200px;margin:0 auto;}
+.section-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--red-pale);border:1px solid rgba(192,32,42,0.25);color:#E87880;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:100px;margin-bottom:1.5rem;}
+.section-tag::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;}
+h2.section-title{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:500;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1rem;}
+.section-sub{font-size:1.05rem;color:var(--gray);line-height:1.75;font-weight:300;max-width:560px;margin-bottom:3.5rem;}
+.text-center{text-align:center;}.text-center .section-sub{margin-left:auto;margin-right:auto;}
+
+/* HOW IT WORKS */
+#how{background:var(--surface);}
+.steps{display:flex;align-items:flex-start;position:relative;max-width:1000px;margin:0 auto;}
+.steps-line{position:absolute;top:28px;left:calc(10% + 20px);right:calc(10% + 20px);height:1px;background:var(--border);z-index:0;}
+.step{flex:1;text-align:center;padding:0 1rem;position:relative;z-index:1;}
+.step-circle{width:56px;height:56px;border-radius:50%;background:var(--s2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;position:relative;}
+.step-num{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:50%;background:var(--red);color:var(--white);font-size:0.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.step-icon{font-size:1.1rem;color:var(--gray-2);}
+.step-title{font-size:0.82rem;font-weight:700;margin-bottom:0.4rem;}
+.step-desc{font-size:0.75rem;color:var(--gray);line-height:1.55;font-weight:300;}
+
+/* FEATURES */
+#features{background:var(--bg);}
+.feature-hero{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;background:var(--s2);border:1px solid var(--border);border-radius:16px;padding:3rem;margin-bottom:1rem;}
+.feat-steps{display:flex;flex-direction:column;gap:1rem;}
+.feat-step{display:flex;align-items:flex-start;gap:0.85rem;font-size:0.88rem;color:var(--gray);line-height:1.55;font-weight:300;}
+.f-num{width:24px;height:24px;min-width:24px;border-radius:50%;background:var(--red);color:var(--white);font-size:0.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+.feat-step strong{color:var(--white);font-weight:600;}
+.track-bar{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;position:relative;}
+.track-bar::before{content:'';position:absolute;top:50%;left:14%;right:14%;height:1px;background:var(--border);transform:translateY(-50%);z-index:0;}
+.track-node{display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;z-index:1;}
+.track-dot{width:28px;height:28px;border-radius:50%;background:var(--s2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.8rem;}
+.track-dot.done{background:rgba(22,163,74,0.15);border-color:rgba(22,163,74,0.4);color:#4ade80;}
+.track-dot.active{background:rgba(192,32,42,0.15);border-color:rgba(192,32,42,0.4);color:#E87880;}
+.track-lbl{font-size:0.55rem;font-weight:700;letter-spacing:0.06em;color:var(--gray);text-transform:uppercase;}
+.ai-panel{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem;}
+.ai-head{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+.ai-icon{width:36px;height:36px;border-radius:8px;background:var(--s3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.ai-name{font-size:0.82rem;font-weight:600;}.ai-sub{font-size:0.68rem;color:var(--gray);}
+.ai-row{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 0.85rem;background:var(--s2);border-radius:7px;margin-bottom:0.5rem;font-size:0.8rem;color:var(--gray-2);}
+.ai-badge{background:var(--red-pale);border:1px solid rgba(192,32,42,0.25);color:#E87880;border-radius:5px;padding:0.15rem 0.6rem;font-size:0.68rem;font-weight:700;}
+.ai-bar-lbl{font-size:0.68rem;color:var(--gray);margin:0.85rem 0 0.35rem;}
+.ai-bar{height:4px;background:var(--border);border-radius:2px;}
+.ai-bar-fill{height:100%;width:78%;background:var(--red);border-radius:2px;}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.feat-card{background:var(--s2);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color 0.2s;}
+.feat-card:hover{border-color:rgba(192,32,42,0.3);}
+.feat-card-tag{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:100px;padding:0.2rem 0.75rem;font-size:0.6rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--gray);margin-bottom:1.25rem;}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem;}
+.feat-card-title{font-size:1rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3;}
+.feat-card-desc{font-size:0.82rem;color:var(--gray);line-height:1.65;font-weight:300;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--surface);}
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:860px;margin:0 auto;}
+.testi-card{background:var(--s2);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;display:flex;flex-direction:column;gap:1.25rem;transition:border-color 0.25s;}
+.testi-card:hover{border-color:rgba(192,32,42,0.25);}
+.testi-card::before{content:'\201C';position:absolute;top:1.5rem;right:1.75rem;font-size:4rem;line-height:1;color:rgba(192,32,42,0.1);font-weight:800;font-family:Georgia,serif;}
+.testi-stars{display:flex;gap:2px;}
+.testi-stars span{color:var(--red);font-size:0.75rem;}
+.testi-text{font-size:0.9rem;color:var(--gray-2);line-height:1.8;font-style:italic;font-weight:300;flex:1;}
+.testi-divider{height:1px;background:var(--border);}
+.testi-author{display:flex;align-items:center;gap:0.85rem;}
+.testi-avatar{width:40px;height:40px;min-width:40px;border-radius:50%;background:var(--red-pale);border:1px solid rgba(192,32,42,0.3);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:var(--red-hi);}
+.testi-name{font-size:0.85rem;font-weight:700;color:var(--white);}
+.testi-role{font-size:0.7rem;color:var(--gray);margin-top:0.1rem;}
+
+/* CTA */
+#cta{background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(192,32,42,0.06) 0%,transparent 70%),var(--s2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:6rem 3rem;}
+.cta-perks{display:flex;align-items:center;justify-content:center;gap:2.5rem;margin-top:2rem;flex-wrap:wrap;}
+.cta-perk{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--gray);font-weight:300;}
+.cta-perk-dot{width:6px;height:6px;background:var(--red);border-radius:50%;flex-shrink:0;}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:4rem 3rem 2rem;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid var(--border);margin-bottom:2rem;}
+.footer-logo{margin-bottom:1rem;margin-top:0.75rem;}
+.footer-logo img{height:48px;width:auto;}
+.footer-tagline{font-size:0.82rem;color:var(--gray);line-height:1.75;max-width:280px;margin-bottom:1.5rem;}
+.footer-socials{display:flex;gap:0.5rem;}
+.f-social{width:34px;height:34px;background:var(--s2);border:1px solid var(--border);border-radius:6px;display:grid;place-items:center;color:var(--gray);text-decoration:none;font-size:0.65rem;font-weight:700;transition:var(--t);}
+.f-social:hover{background:var(--red);border-color:var(--red);color:var(--white);}
+.f-col-title{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);margin-bottom:1.1rem;}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+.f-links a{text-decoration:none;color:rgba(255,255,255,0.4);font-size:0.83rem;transition:color 0.25s;}
+.f-links a:hover{color:var(--white);}
+.f-contact{display:flex;flex-direction:column;gap:0.6rem;}
+.f-contact-row{display:flex;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.55;align-items:flex-start;}
+.f-contact-label{font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--red-hi);min-width:52px;margin-top:2px;flex-shrink:0;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.f-copy{font-size:0.72rem;color:rgba(255,255,255,0.25);}
+.f-legal{display:flex;gap:1.25rem;list-style:none;}
+.f-legal a{text-decoration:none;color:rgba(255,255,255,0.25);font-size:0.72rem;transition:color 0.25s;}
+.f-legal a:hover{color:rgba(255,255,255,0.7);}
+
+/* WHATSAPP */
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.25s;}
+.whatsapp-float:hover{transform:scale(1.1);}.whatsapp-float svg{width:26px;height:26px;fill:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.feat-grid{grid-template-columns:repeat(2,1fr);}.feature-hero{grid-template-columns:1fr;gap:2.5rem;}.footer-top{grid-template-columns:1fr 1fr;gap:2.5rem;}}
+@media(max-width:768px){nav{padding:0 1.5rem;}section{padding:4rem 1.5rem;}#hero{padding:7rem 1.5rem 4rem;}.hero-stats-row{grid-template-columns:1fr}.steps{flex-direction:column;gap:2rem;align-items:center;}.steps-line{display:none;}.feat-grid{grid-template-columns:1fr;}.testi-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:1rem;text-align:center;}footer{padding:4rem 1.5rem 2rem;}#cta{padding:5rem 1.5rem;}.cta-perks{flex-direction:column;gap:1rem;}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd. T/A Megamart"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="portal.html" class="nav-portal active">Client Portal</a>
+    <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
+  </button>
+</nav>
+<div id="mobile-nav-overlay">
+  <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+  <div class="mob-bottom">
+    <a href="portal.html" class="mob-portal">Client Portal</a>
+    <a href="index.html#contact" class="mob-cta">Get in Touch</a>
+    <div class="mob-info">
+      <span>Call us:</span>
+      <a href="tel:+255753300000">+255 753 300 000</a>
+      <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="badge-dot"></span>Trusted by Hotels, Lodges &amp; Camps</div>
+    <h1 class="hero-title">Order Smarter.<br><span>Supply Better.</span></h1>
+    <p class="hero-sub">Our Client Portal puts 3,000+ products at your fingertips — with live order tracking, real-time account statements and AI-assisted reordering built for hospitality.</p>
+    <div class="hero-btns">
+      <a href="index.html#contact" class="btn-primary">Request Portal Access &nbsp;→</a>
+      <a href="#features" class="btn-ghost">EXPLORE FEATURES &nbsp;↓</a>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hero-stat-card">
+        <div class="hero-stat-val">Multiple</div>
+        <div class="hero-stat-lbl">Hotels &amp; Lodges</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-val">3,000+</div>
+        <div class="hero-stat-lbl">Products Available</div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-val">7</div>
+        <div class="hero-stat-lbl">Smart Features</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="brands-section">
+  <div class="brands-section-label">Featured brands available on the portal</div>
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#4ade80;"></span>Zen Water</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fb923c;"></span>Fruitville</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#f87171;"></span>Frosti</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fbbf24;"></span>Zesta</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#a78bfa;"></span>Nuziwa</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#34d399;"></span>Kericho Gold</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#60a5fa;"></span>Nestlé</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#f97316;"></span>Sunkist</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#e879f9;"></span>Rosho</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#38bdf8;"></span>Omo</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#a3e635;"></span>Ryvita</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fb7185;"></span>Kellogg's</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fde68a;"></span>American Garden</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#4ade80;"></span>Zen Water</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fb923c;"></span>Fruitville</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#f87171;"></span>Frosti</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fbbf24;"></span>Zesta</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#a78bfa;"></span>Nuziwa</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#34d399;"></span>Kericho Gold</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#60a5fa;"></span>Nestlé</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#f97316;"></span>Sunkist</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#e879f9;"></span>Rosho</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#38bdf8;"></span>Omo</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#a3e635;"></span>Ryvita</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fb7185;"></span>Kellogg's</span>
+      <span class="marquee-pill"><span class="marquee-pill-dot" style="background:#fde68a;"></span>American Garden</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container text-center">
+    <div class="section-tag">HOW IT WORKS</div>
+    <h2 class="section-title">Five Steps from Order to Delivery</h2>
+    <div class="steps" style="margin-top:3rem;">
+      <div class="steps-line"></div>
+      <div class="step">
+        <div class="step-circle"><span class="step-icon">①</span><span class="step-num">1</span></div>
+        <div class="step-title">Sign In</div>
+        <div class="step-desc">Log in to your dedicated portal with your Megamart account credentials</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-icon">②</span><span class="step-num">2</span></div>
+        <div class="step-title">Browse &amp; Build</div>
+        <div class="step-desc">Browse the full catalogue and build your order with smart AI reorder suggestions</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-icon">③</span><span class="step-num">3</span></div>
+        <div class="step-title">Confirm Order</div>
+        <div class="step-desc">Review, confirm and submit — your account manager is notified instantly</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-icon">④</span><span class="step-num">4</span></div>
+        <div class="step-title">Fast Delivery</div>
+        <div class="step-desc">Direct delivery to your premises with live real-time tracking throughout</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-icon">⑤</span><span class="step-num">5</span></div>
+        <div class="step-title">Confirmed &amp; Invoiced</div>
+        <div class="step-desc">Receive goods, view your live statement and full payment history at any time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container text-center">
+    <div class="section-tag">Platform Features</div>
+    <h2 class="section-title">Everything your business needs, in one place</h2>
+    <p class="section-sub">Designed specifically for hotels, lodges and restaurants — the portal brings professional supply management to any device.</p>
+
+    <div class="feature-hero" style="text-align:left;">
+      <div>
+        <div class="section-tag">AI-Powered Ordering</div>
+        <h3 style="font-size:1.8rem;font-weight:600;line-height:1.2;margin-bottom:1rem;letter-spacing:-0.02em;">Smart suggestions that learn your business</h3>
+        <p style="font-size:0.9rem;color:var(--gray);line-height:1.75;margin-bottom:1.75rem;font-weight:300;">Our ordering engine analyses your historical patterns and recommends the right products, quantities and timing — so you never run out of what matters most.</p>
+        <div class="feat-steps">
+          <div class="feat-step"><span class="f-num">1</span><span><strong>Analyses your order history</strong> to identify patterns and seasonal trends</span></div>
+          <div class="feat-step"><span class="f-num">2</span><span><strong>Recommends top products</strong> with predicted quantities based on usage</span></div>
+          <div class="feat-step"><span class="f-num">3</span><span><strong>Builds a smart cart</strong> so you can review, adjust and confirm in minutes</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="ai-panel">
+          <div class="ai-head">
+            <div class="ai-icon">🤖</div>
+            <div><div class="ai-name">Smart Reorder Assistant</div><div class="ai-sub">Based on your last 30 days</div></div>
+          </div>
+          <div class="ai-row"><span>Fruitville Mango (1L × 12)</span><span class="ai-badge">High Usage</span></div>
+          <div class="ai-row"><span>Zen Water (500ml × 24)</span><span class="ai-badge">Reorder Now</span></div>
+          <div class="ai-row"><span>Kericho Gold: Pure Peppermint (50s × 6)</span><span class="ai-badge">Low Stock</span></div>
+          <div class="ai-bar-lbl">Order confidence score</div>
+          <div class="ai-bar"><div class="ai-bar-fill"></div></div>
+          <div style="font-size:0.7rem;color:var(--red);font-weight:600;margin-top:0.35rem;">78% match with typical order</div>
+        </div>
+        <div class="track-bar" style="margin-top:0.75rem;">
+          <div class="track-node"><div class="track-dot done">✓</div><div class="track-lbl">Placed</div></div>
+          <div class="track-node"><div class="track-dot done">✓</div><div class="track-lbl">Confirmed</div></div>
+          <div class="track-node"><div class="track-dot active">→</div><div class="track-lbl">En Route</div></div>
+          <div class="track-node"><div class="track-dot">▦</div><div class="track-lbl">Delivered</div></div>
+          <div class="track-node"><div class="track-dot">✓</div><div class="track-lbl">Invoiced</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-grid" style="margin-top:1rem;">
+      <div class="feat-card">
+        <div class="feat-card-tag">Core</div>
+        <div class="feat-icon">🛒</div>
+        <div class="feat-card-title">Order Online</div>
+        <div class="feat-card-desc">Browse the full catalogue and place orders 24/7 from any device — no phone calls required.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-tag">History</div>
+        <div class="feat-icon">📋</div>
+        <div class="feat-card-title">Order History</div>
+        <div class="feat-card-desc">Access every past order, reorder in one click and keep a full record for your purchasing team.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-tag">Inventory</div>
+        <div class="feat-icon">📦</div>
+        <div class="feat-card-title">Stock Manager</div>
+        <div class="feat-card-desc">Monitor current stock levels, set low-stock alerts and stay ahead of your next order cycle.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-tag">Logistics</div>
+        <div class="feat-icon">🚚</div>
+        <div class="feat-card-title">Live Tracking</div>
+        <div class="feat-card-desc">Track every delivery in real time from dispatch to arrival — know exactly when your order will arrive.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-tag">Finance</div>
+        <div class="feat-icon">📊</div>
+        <div class="feat-card-title">Live Statement</div>
+        <div class="feat-card-desc">View your running account balance, outstanding invoices and full payment history at any time.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-card-tag">Support</div>
+        <div class="feat-icon">💬</div>
+        <div class="feat-card-title">Dedicated Account Manager</div>
+        <div class="feat-card-desc">Every portal client has a named account manager — reachable via the portal, WhatsApp or phone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container text-center">
+    <div class="section-tag">Client Feedback</div>
+    <h2 class="section-title">Trusted by Arusha's finest hospitality operations</h2>
+    <p class="section-sub" style="margin-bottom:3rem;">Here is what our clients say about working with us and using the portal.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">The portal has completely changed how we manage our F&amp;B procurement. We can reorder in minutes and the live tracking means our team always knows when to expect delivery.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div><div class="testi-name">Amina Khalid</div><div class="testi-role">F&amp;B Manager · Serengeti Lodge</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">The live statement feature alone saves our finance team hours every week. Everything is transparent and accessible — exactly what a busy camp operation needs.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div><div class="testi-name">James Mwangi</div><div class="testi-role">Operations Director · Kilimanjaro Safari Camp</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="section-tag" style="display:table;margin:0 auto 1.5rem;">Request Access</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Ready to take the hassle out of ordering?</h2>
+    <p class="section-sub" style="margin:0 auto 2.5rem;">Portal access is available to all our active clients. Contact your account manager or our team to get set up — it only takes 24 hours.</p>
+    <div style="display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn-primary">Request Portal Access &nbsp;→</a>
+      <a href="https://wa.me/255762800805" target="_blank" class="btn-ghost">WHATSAPP US &nbsp;→</a>
+    </div>
+    <div class="cta-perks">
+      <div class="cta-perk"><span class="cta-perk-dot"></span>Exclusive Free Access for Our Clients</div>
+      <div class="cta-perk"><span class="cta-perk-dot"></span>Set up within 24 hours</div>
+      <div class="cta-perk"><span class="cta-perk-dot"></span>Dedicated Account Support</div>
+      <div class="cta-perk"><span class="cta-perk-dot"></span>Compatible on All Devices</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></div>
+        <p class="footer-tagline">Tanzania's premier FMCG wholesale and distribution partner — delivering quality across the Northern Circuit for over two decades.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/premiumsuppliesltd" target="_blank" class="f-social">IG</a>
+          <a href="https://www.facebook.com/premiumsuppliesltd" target="_blank" class="f-social">FB</a>
+          <a href="https://www.linkedin.com/company/premium-supplies-ltd" target="_blank" class="f-social">IN</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Quick Links</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partners.html">Partnerships</a></li>
+          <li><a href="blog.html">Blog &amp; News</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <div class="f-contact">
+          <div class="f-contact-row"><span class="f-contact-label">Address</span><span>Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Phone</span><div>+255 753 300 000<br>+255 754 387 123<br>+255 762 800 805</div></div>
+          <div class="f-contact-row"><span class="f-contact-label">WhatsApp</span><span>+255 762 800 805</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved. · Arusha, Tanzania</span>
+      <ul class="f-legal"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
+var ham=document.getElementById('ham-btn');
+var overlay=document.getElementById('mobile-nav-overlay');
+ham.addEventListener('click',function(){
+  var isOpen=overlay.classList.toggle('show');
+  ham.querySelector('.bar1').style.transform=isOpen?'translateY(7px) rotate(45deg)':'';
+  ham.querySelector('.bar2').style.opacity=isOpen?'0':'1';
+  ham.querySelector('.bar3').style.transform=isOpen?'translateY(-7px) rotate(-45deg)':'';
+  document.body.style.overflow=isOpen?'hidden':'';
+});
+document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a){
+  a.addEventListener('click',function(){
+    overlay.classList.remove('show');
+    ham.querySelector('.bar1').style.transform='';
+    ham.querySelector('.bar2').style.opacity='1';
+    ham.querySelector('.bar3').style.transform='';
+    document.body.style.overflow='';
+  });
+});
+</script>
+</body>
+</html>

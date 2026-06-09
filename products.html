@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Range | Premium Supplies Ltd. T/A Megamart</title>
+<meta name="description" content="Explore our extensive range of 3,000+ wholesale food and non-food products. Beverages, condiments, canned foods, cleaning items and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg:       #070C18;
+  --surface:  #0D1526;
+  --s2:       #121E35;
+  --s3:       #172645;
+  --s4:       #1E3058;
+  --red:      #C0202A;
+  --red-hi:   #D42530;
+  --red-glow: rgba(192,32,42,0.22);
+  --red-pale: rgba(192,32,42,0.08);
+  --white:    #FFFFFF;
+  --gray:     #8896B3;
+  --gray-2:   #C5CFDF;
+  --border:   rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.13);
+  --font:     'Plus Jakarta Sans', sans-serif;
+  --ease:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --t:        0.35s var(--ease);
+}
+body { font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 72px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(7,12,24,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); transition: background 0.4s;
+}
+nav.scrolled { background: rgba(7,12,24,0.98); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 40px; width: auto; display: block; margin: auto 0; }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.02em; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.25s; white-space: nowrap; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.nav-links a.active { color: var(--white); }
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.nav-portal {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); background: transparent;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); white-space: nowrap;
+}
+.nav-portal:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+.nav-cta { display: inline-flex; align-items: center; background: var(--red); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap; }
+.nav-cta:hover { background: var(--red-hi); transform: translateY(-1px); box-shadow: 0 6px 20px var(--red-glow); }
+
+/* ── PAGE HERO ── */
+#page-hero {
+  padding: 10rem 3rem 5rem;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 20%, transparent 70%);
+}
+.page-hero-glow {
+  position: absolute; pointer-events: none;
+  width: 600px; height: 400px;
+  background: radial-gradient(circle, rgba(192,32,42,0.1) 0%, transparent 70%);
+  top: 0; left: 50%; transform: translateX(-50%); filter: blur(60px);
+}
+.page-hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; text-align: center; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 1rem; }
+.page-eyebrow::before { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.page-eyebrow::after  { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.page-h1 { font-size: clamp(2.2rem, 4vw, 3.8rem); font-weight: 500; letter-spacing: -0.025em; color: var(--white); line-height: 1.1; margin-bottom: 1.25rem; }
+.page-h1 span { color: var(--red-hi); }
+.page-sub { font-size: 1rem; color: var(--gray); line-height: 1.8; max-width: 580px; margin: 0 auto 2.5rem; }
+.page-hero-stats {
+  display: inline-flex; align-items: center; gap: 2.5rem;
+  background: var(--surface); border: 1px solid var(--border-2);
+  border-radius: 100px; padding: 0.75rem 2rem;
+}
+.ph-stat { display: flex; align-items: center; gap: 0.6rem; }
+.ph-stat-val { font-size: 1.1rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; }
+.ph-stat-lbl { font-size: 0.7rem; font-weight: 500; color: var(--gray); letter-spacing: 0.04em; }
+.ph-divider { width: 1px; height: 20px; background: var(--border-2); }
+
+/* ── FILTER TABS ── */
+#filter-bar { padding: 2.5rem 3rem 0; background: var(--bg); }
+.filter-inner { max-width: 1200px; margin: 0 auto; }
+.filter-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.85rem; }
+.filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filter-tab {
+  padding: 0.5rem 1.1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+  color: var(--gray); cursor: pointer; transition: var(--t);
+  letter-spacing: 0.02em;
+}
+.filter-tab:hover { border-color: var(--border-2); color: var(--white); background: var(--s2); }
+.filter-tab.active { background: var(--red); border-color: var(--red); color: var(--white); }
+
+/* ── PRODUCT GRID ── */
+#products-grid { padding: 3rem 3rem 5rem; background: var(--bg); }
+.products-inner { max-width: 1200px; margin: 0 auto; }
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* Category Card */
+.cat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--t);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.cat-card:hover { border-color: rgba(192,32,42,0.3); transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+
+/* Card visual area */
+.cat-visual {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 2rem;
+}
+.cat-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  opacity: 0; transition: opacity 0.4s;
+}
+.cat-card:hover .cat-visual::before { opacity: 1; }
+
+/* Individual card background colours */
+.cat-beverages  .cat-visual { background: linear-gradient(135deg, #0F2040 0%, #162D55 100%); }
+.cat-condiments .cat-visual { background: linear-gradient(135deg, #1A1020 0%, #2A1535 100%); }
+.cat-coffee     .cat-visual { background: linear-gradient(135deg, #1A1005 0%, #2D1A08 100%); }
+.cat-canned     .cat-visual { background: linear-gradient(135deg, #0A1F0A 0%, #102818 100%); }
+.cat-cleaning   .cat-visual { background: linear-gradient(135deg, #081825 0%, #0D2235 100%); }
+.cat-packaging  .cat-visual { background: linear-gradient(135deg, #1A1505 0%, #2A2008 100%); }
+.cat-milks      .cat-visual { background: linear-gradient(135deg, #151520 0%, #201E35 100%); }
+.cat-nuts       .cat-visual { background: linear-gradient(135deg, #1A0F05 0%, #2D1A08 100%); }
+
+.cat-visual svg { width: 100px; height: 100px; transition: transform 0.4s var(--ease); filter: drop-shadow(0 12px 24px rgba(0,0,0,0.4)); }
+.cat-card:hover .cat-visual svg { transform: translateY(-6px) scale(1.06); }
+
+/* Card info */
+.cat-info { padding: 1.25rem 1.25rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid var(--border); }
+.cat-name { font-size: 0.95rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
+.cat-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.6; flex: 1; }
+.cat-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--red-hi); margin-top: 0.5rem; transition: gap 0.3s;
+}
+.cat-card:hover .cat-link { gap: 0.7rem; }
+
+/* Top badge on card */
+.cat-badge {
+  position: absolute; top: 0.85rem; right: 0.85rem;
+  background: rgba(7,12,24,0.7); backdrop-filter: blur(8px);
+  border: 1px solid var(--border-2);
+  border-radius: 100px; font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray-2); padding: 3px 8px;
+}
+
+/* ── AND MANY MORE BANNER ── */
+#more-banner { padding: 0 3rem 5rem; background: var(--bg); }
+.more-inner { max-width: 1200px; margin: 0 auto; }
+.more-card {
+  background: var(--s2);
+  border: 1px solid var(--border-2);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  position: relative; overflow: hidden;
+}
+.more-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--red);
+}
+.more-text-wrap { }
+.more-title { font-size: 1.3rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.more-title span { color: var(--red-hi); }
+.more-desc { font-size: 0.85rem; color: var(--gray); line-height: 1.7; max-width: 580px; }
+.more-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
+.more-tag {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gray-2); background: var(--s3); border: 1px solid var(--border);
+  padding: 4px 10px; border-radius: 100px;
+}
+
+/* ── CATALOGUE CTA ── */
+#catalogue-cta {
+  padding: 6rem 3rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+.catalogue-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.catalogue-text { }
+.cat-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.85rem; }
+.cat-eyebrow::before { content:''; width: 18px; height: 2px; background: var(--red); border-radius: 1px; }
+.catalogue-h { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; letter-spacing: -0.02em; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
+.catalogue-h span { color: var(--red-hi); }
+.catalogue-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.85; margin-bottom: 2rem; }
+.catalogue-points { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.catalogue-point { display: flex; align-items: center; gap: 0.75rem; font-size: 0.85rem; color: var(--gray-2); }
+.catalogue-point::before { content: ''; width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+.catalogue-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+/* Form card */
+.catalogue-form-card {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: 16px; padding: 2.25rem;
+}
+.cf-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.cf-sub { font-size: 0.8rem; color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6; }
+.fg { margin-bottom: 1rem; }
+.fg label { display: block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+.fg input, .fg select, .fg textarea {
+  width: 100%; padding: 0.72rem 0.9rem;
+  background: var(--s3); border: 1px solid var(--border);
+  border-radius: 8px; font-family: var(--font); font-size: 0.86rem;
+  color: var(--white); outline: none; transition: border-color 0.25s; appearance: none;
+}
+.fg input::placeholder, .fg textarea::placeholder { color: var(--gray); }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--red); background: var(--s4); }
+.fg select option { background: var(--s2); color: var(--white); }
+.fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.cf-btn {
+  width: 100%; padding: 0.9rem; background: var(--red); color: var(--white);
+  border: none; border-radius: 8px; font-family: var(--font); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--t); margin-top: 0.25rem;
+}
+.cf-btn:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 10px 28px var(--red-glow); }
+
+/* Buttons */
+.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--red); color: var(--white); font-family: var(--font); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 1.9rem; border-radius: 6px; text-decoration: none; transition: var(--t); border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--red-hi); transform: translateY(-2px); box-shadow: 0 10px 30px var(--red-glow); }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--white); font-family: var(--font); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.9rem 1.9rem; border-radius: 6px; text-decoration: none; border: 1px solid var(--border-2); transition: var(--t); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 5rem 3rem 2.5rem; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.footer-logo { margin-bottom: 1rem; margin-top: 0.75rem; }
+.footer-logo img { height: 48px; width: auto; }
+.footer-tagline { font-size: 0.82rem; color: var(--gray); line-height: 1.75; max-width: 280px; margin-bottom: 1.5rem; }
+.footer-socials { display: flex; gap: 0.5rem; }
+.f-social { width: 34px; height: 34px; background: var(--s2); border: 1px solid var(--border); border-radius: 6px; display: grid; place-items: center; color: var(--gray); text-decoration: none; font-size: 0.65rem; font-weight: 700; transition: var(--t); }
+.f-social:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+.f-col-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.1rem; }
+.f-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.f-links a { text-decoration: none; color: rgba(255,255,255,0.4); font-size: 0.83rem; transition: color 0.25s; }
+.f-links a:hover { color: var(--white); }
+.f-contact { display: flex; flex-direction: column; gap: 0.6rem; }
+.f-contact-row { display: flex; gap: 0.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.55; align-items: flex-start; }
+.f-contact-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red-hi); min-width: 52px; margin-top: 2px; flex-shrink: 0; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.f-legal { display: flex; gap: 1.25rem; list-style: none; }
+.f-legal a { text-decoration: none; color: rgba(255,255,255,0.25); font-size: 0.72rem; transition: color 0.25s; }
+.f-legal a:hover { color: rgba(255,255,255,0.7); }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s var(--ease), box-shadow 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 14px 40px rgba(37,211,102,0.5); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: var(--white); }
+
+/* Animations */
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+.reveal { opacity:0; transform:translateY(26px); transition:opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1{transition-delay:0.08s} .d2{transition-delay:0.16s} .d3{transition-delay:0.24s} .d4{transition-delay:0.32s}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  nav { padding: 0 2rem; }
+  #page-hero, #filter-bar, #products-grid, #more-banner, #catalogue-cta, footer { padding-left: 2rem; padding-right: 2rem; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .catalogue-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  nav { padding: 0 1.5rem; }
+  #page-hero { padding: 8rem 1.5rem 3rem; }
+  #filter-bar, #products-grid, #more-banner, #catalogue-cta { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .category-grid { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+  .page-hero-stats { flex-direction: column; gap: 1rem; border-radius: 16px; }
+  .ph-divider { width: 80px; height: 1px; }
+  .more-card { flex-direction: column; }
+  .catalogue-inner { grid-template-columns: 1fr; }
+  .fg-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  footer { padding: 4rem 1.5rem 2rem; }
+}
+
+/* ── HAMBURGER MENU ── */
+
+
+/* ── MOBILE NAV ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 9999;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #070C18;
+  z-index: 9998;
+  flex-direction: column;
+  padding: 1rem 2rem 3rem;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+#mobile-nav-overlay.show {
+  display: flex;
+}
+.mob-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.mob-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mob-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-links li a:after { content: "→"; color: #8896B3; }
+.mob-bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mob-cta {
+  display: block;
+  text-align: center;
+  background: #C0202A;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-info span { font-size: 0.78rem; color: #8896B3; }
+.mob-info a { color: #C5CFDF; text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .nav-right { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd. T/A Megamart"></a>
+    <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html" class="active">Products</a></li>
+    <li><a href="partners.html" >Partnerships</a></li>
+    <li><a href="blog.html" >Blog &amp; News</a></li>
+    <li><a href="careers.html" >Careers</a></li>
+  </ul>
+  <div class="nav-right"><a href="portal.html" class="nav-portal">Client Portal</a><a href="contact.html" class="nav-cta">Get in Touch</a></div>
+
+  <!-- Mobile Menu -->  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </button>
+</nav>
+  <div id="mobile-nav-overlay">
+      <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+    <div class="mob-bottom">
+      <a href="portal.html" class="mob-portal" style="display:block;text-align:center;border:1px solid rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:0.9rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font);margin-bottom:0.5rem;">Client Portal</a><a href="index.html#contact" class="mob-cta">Get in Touch</a>
+      <div class="mob-info">
+        <span>Call us:</span>
+        <a href="tel:+255753300000">+255 753 300 000</a>
+        <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+      </div>
+    </div>
+  </div>
+
+<!-- PAGE HERO -->
+<section id="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Our Range</div>
+    <h1 class="page-h1" style="text-align:center;">3,000+ Products.<br><span>One Trusted Partner.</span></h1>
+    <p class="page-sub">We stock 90% of what your business needs. From kitchen essentials to cleaning supplies — browse our extensive wholesale product range, sourced from quality suppliers and delivered reliably across the Northern Circuit.</p>
+    <div class="page-hero-stats">
+      <div class="ph-stat"><span class="ph-stat-val">3,000+</span><span class="ph-stat-lbl">Products Available</span></div>
+<div class="ph-divider"></div>
+      <div class="ph-stat"><span class="ph-stat-val">20+</span><span class="ph-stat-lbl">Years of Sourcing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div id="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-label">Browse by Category</div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterCats(this, 'all')">All Categories</button>
+      <button class="filter-tab" onclick="filterCats(this, 'food')">Food & Dry Goods</button>
+      <button class="filter-tab" onclick="filterCats(this, 'beverages')">Beverages</button>
+      <button class="filter-tab" onclick="filterCats(this, 'cleaning')">Cleaning & Hygiene</button>
+      <button class="filter-tab" onclick="filterCats(this, 'packaging')">Packaging</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT GRID -->
+<section id="products-grid">
+  <div class="products-inner">
+    <div class="category-grid">
+
+      <!-- BEVERAGES -->
+      <div class="cat-card cat-beverages reveal" data-cat="beverages">
+        <div class="cat-visual">
+          <span class="cat-badge">Beverages</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="bev1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A3A6A"/><stop offset="50%" stop-color="#2A5AA0"/><stop offset="100%" stop-color="#122848"/></linearGradient></defs>
+            <ellipse cx="50" cy="112" rx="28" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Bottle 1 -->
+            <rect x="8" y="30" width="26" height="72" rx="8" fill="url(#bev1)"/>
+            <rect x="11" y="25" width="20" height="10" rx="4" fill="#1A3A6A"/>
+            <rect x="14" y="18" width="14" height="9" rx="3" fill="#2A5080"/>
+            <rect x="10" y="50" width="22" height="28" rx="3" fill="rgba(255,255,255,0.08)"/>
+            <rect x="12" y="54" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+            <rect x="12" y="60" width="14" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+            <rect x="10" y="35" width="6" height="56" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <!-- Bottle 2 -->
+            <rect x="38" y="22" width="24" height="80" rx="8" fill="#1E4880"/>
+            <rect x="41" y="17" width="18" height="9" rx="4" fill="#1A3A6A"/>
+            <rect x="44" y="10" width="12" height="9" rx="3" fill="#2A5080"/>
+            <rect x="40" y="42" width="20" height="32" rx="3" fill="rgba(255,255,255,0.08)"/>
+            <rect x="42" y="46" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+            <rect x="42" y="52" width="12" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+            <rect x="38" y="28" width="6" height="64" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <!-- Bottle 3 -->
+            <rect x="66" y="35" width="22" height="66" rx="7" fill="#162E58"/>
+            <rect x="69" y="30" width="16" height="9" rx="4" fill="#1A3A6A"/>
+            <rect x="72" y="23" width="10" height="9" rx="3" fill="#243E70"/>
+            <rect x="68" y="52" width="18" height="26" rx="3" fill="rgba(255,255,255,0.07)"/>
+            <rect x="70" y="56" width="14" height="3" rx="1.5" fill="rgba(255,255,255,0.25)"/>
+            <rect x="66" y="40" width="5" height="52" rx="2.5" fill="rgba(255,255,255,0.08)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Beverages</div>
+          <div class="cat-desc">Juices and a range of beverage brands for hospitality and retail.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- CONDIMENTS -->
+      <div class="cat-card cat-condiments reveal d1" data-cat="food">
+        <div class="cat-visual">
+          <span class="cat-badge">Condiments</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="con1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3D1A2A"/><stop offset="100%" stop-color="#1A0A12"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="26" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Main bottle -->
+            <path d="M30 50 Q27 62 27 90 Q27 108 30 112 L70 112 Q73 108 73 90 Q73 62 70 50 Z" fill="#C82030"/>
+            <path d="M35 32 Q30 40 30 50 L70 50 Q70 40 65 32 Z" fill="#A81A28"/>
+            <rect x="38" y="22" width="24" height="14" rx="5" fill="#881520"/>
+            <rect x="43" y="14" width="14" height="10" rx="4" fill="#C82030"/>
+            <rect x="30" y="62" width="40" height="32" rx="3" fill="rgba(255,255,255,0.12)"/>
+            <rect x="34" y="68" width="32" height="4" rx="2" fill="rgba(255,255,255,0.5)"/>
+            <rect x="36" y="76" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+            <rect x="38" y="83" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.25)"/>
+            <path d="M29 54 Q27 68 27 86 L33 86 Q33 68 33 54 Z" fill="rgba(255,255,255,0.15)"/>
+            <!-- Small bottle -->
+            <rect x="74" y="60" width="18" height="50" rx="6" fill="#8B6914"/>
+            <rect x="76" y="54" width="14" height="9" rx="3" fill="#705510"/>
+            <rect x="79" y="47" width="8" height="9" rx="3" fill="#8B6914"/>
+            <rect x="75" y="76" width="16" height="18" rx="2" fill="rgba(255,255,255,0.1)"/>
+            <rect x="77" y="80" width="12" height="2.5" rx="1.25" fill="rgba(255,255,255,0.3)"/>
+            <rect x="74" y="66" width="5" height="38" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Condiments</div>
+          <div class="cat-desc">Ketchups, mustards, mayonnaises, hot sauces, vinegars, oils and a full range of table condiments.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- COFFEE & TEA -->
+      <div class="cat-card cat-coffee reveal d2" data-cat="beverages">
+        <div class="cat-visual">
+          <span class="cat-badge">Coffee & Tea</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="cof1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A3020"/><stop offset="50%" stop-color="#244530"/><stop offset="100%" stop-color="#102018"/></linearGradient><linearGradient id="cof2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#C49020"/><stop offset="100%" stop-color="#906A10"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="26" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Tea tin -->
+            <rect x="22" y="35" width="56" height="76" rx="6" fill="url(#cof1)"/>
+            <rect x="72" y="39" width="6" height="68" rx="3" fill="rgba(0,0,0,0.2)"/>
+            <rect x="22" y="35" width="56" height="11" rx="3" fill="url(#cof2)"/>
+            <rect x="22" y="44" width="56" height="4" fill="url(#cof2)"/>
+            <rect x="22" y="103" width="56" height="8" rx="3" fill="url(#cof2)"/>
+            <rect x="24" y="40" width="8" height="68" rx="4" fill="rgba(255,255,255,0.06)"/>
+            <!-- Emblem -->
+            <circle cx="50" cy="72" r="18" fill="rgba(255,255,255,0.06)" stroke="rgba(196,144,32,0.4)" stroke-width="1.5"/>
+            <circle cx="50" cy="72" r="12" fill="none" stroke="rgba(196,144,32,0.3)" stroke-width="1"/>
+            <path d="M50 60 L53 69 L62 69 L55 75 L58 84 L50 78 L42 84 L45 75 L38 69 L47 69 Z" fill="rgba(196,144,32,0.45)"/>
+            <rect x="30" y="94" width="40" height="2.5" rx="1.25" fill="rgba(196,144,32,0.4)"/>
+            <rect x="34" y="99" width="32" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+            <!-- Lid -->
+            <rect x="18" y="20" width="64" height="18" rx="7" fill="url(#cof1)"/>
+            <rect x="24" y="23" width="30" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+            <rect x="38" y="10" width="24" height="12" rx="5" fill="#1A3020"/>
+            <rect x="42" y="12" width="16" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <rect x="18" y="35" width="64" height="4" rx="2" fill="url(#cof2)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Coffee & Tea</div>
+          <div class="cat-desc">Premium teas, ground coffees, instant coffee, herbal infusions and hot beverage accessories for hospitality.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- CANNED FOODS -->
+      <div class="cat-card cat-canned reveal d3" data-cat="food">
+        <div class="cat-visual">
+          <span class="cat-badge">Canned Foods</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="can1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#1A3A10"/><stop offset="50%" stop-color="#2A5A1A"/><stop offset="100%" stop-color="#102208"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="28" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Can 1 (back left) -->
+            <rect x="8" y="42" width="36" height="66" rx="8" fill="#8B3010"/>
+            <ellipse cx="26" cy="42" rx="18" ry="5" fill="#A03812"/>
+            <ellipse cx="26" cy="108" rx="18" ry="5" fill="#721808"/>
+            <rect x="10" y="60" width="32" height="28" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <rect x="12" y="65" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+            <rect x="14" y="72" width="22" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <rect x="14" y="78" width="22" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <rect x="10" y="48" width="6" height="54" rx="3" fill="rgba(255,255,255,0.08)"/>
+            <!-- Can 2 (front right) -->
+            <rect x="38" y="28" width="36" height="78" rx="8" fill="url(#can1)"/>
+            <ellipse cx="56" cy="28" rx="18" ry="5" fill="#2A5A1A"/>
+            <ellipse cx="56" cy="106" rx="18" ry="5" fill="#1A3A0A"/>
+            <rect x="40" y="48" width="32" height="32" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <rect x="42" y="53" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+            <rect x="44" y="60" width="22" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <rect x="44" y="66" width="22" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <rect x="42" y="72" width="24" height="2" rx="1" fill="rgba(255,255,255,0.15)"/>
+            <rect x="40" y="34" width="6" height="64" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <!-- Can 3 (back right) -->
+            <rect x="68" y="48" width="28" height="58" rx="7" fill="#1A3060"/>
+            <ellipse cx="82" cy="48" rx="14" ry="4" fill="#243870"/>
+            <ellipse cx="82" cy="106" rx="14" ry="4" fill="#102040"/>
+            <rect x="70" y="64" width="24" height="22" rx="2" fill="rgba(255,255,255,0.08)"/>
+            <rect x="72" y="68" width="20" height="2.5" rx="1.25" fill="rgba(255,255,255,0.25)"/>
+            <rect x="68" y="53" width="5" height="47" rx="2.5" fill="rgba(255,255,255,0.07)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Canned Foods</div>
+          <div class="cat-desc">Tinned tomatoes, beans, fruits, vegetables, tuna, olives and specialty preserved foods.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- CLEANING ITEMS -->
+      <div class="cat-card cat-cleaning reveal" data-cat="cleaning">
+        <div class="cat-visual">
+          <span class="cat-badge">Cleaning</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="cl1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0D2840" stop-opacity="0.9"/><stop offset="50%" stop-color="#1A4468" stop-opacity="0.8"/><stop offset="100%" stop-color="#082035" stop-opacity="0.95"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="26" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Spray bottle -->
+            <rect x="28" y="54" width="42" height="56" rx="10" fill="url(#cl1)"/>
+            <rect x="30" y="58" width="10" height="44" rx="5" fill="rgba(255,255,255,0.1)"/>
+            <rect x="30" y="70" width="38" height="26" rx="3" fill="rgba(255,255,255,0.07)"/>
+            <rect x="33" y="75" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.25)"/>
+            <rect x="35" y="82" width="24" height="2.5" rx="1.25" fill="rgba(255,255,255,0.15)"/>
+            <rect x="35" y="88" width="24" height="2.5" rx="1.25" fill="rgba(255,255,255,0.15)"/>
+            <!-- Label stripe -->
+            <rect x="28" y="54" width="42" height="14" rx="10" fill="#1848A0" opacity="0.9"/>
+            <rect x="28" y="62" width="42" height="6" fill="#1848A0" opacity="0.9"/>
+            <!-- Neck -->
+            <rect x="36" y="34" width="20" height="24" rx="5" fill="#1030688"/>
+            <rect x="38" y="37" width="9" height="16" rx="3" fill="rgba(255,255,255,0.1)"/>
+            <!-- Trigger -->
+            <path d="M56 38 Q76 34 80 50 Q82 58 76 60 L56 60 Z" fill="#0D2040"/>
+            <path d="M66 54 Q74 50 80 58 Q82 63 78 65 Q72 67 67 63 Z" fill="#081830"/>
+            <rect x="78" y="36" width="14" height="6" rx="3" fill="#0D2040"/>
+            <!-- Mist -->
+            <circle cx="95" cy="26" r="2" fill="#4A80CC" opacity="0.4"/>
+            <circle cx="90" cy="20" r="1.5" fill="#4A80CC" opacity="0.3"/>
+            <circle cx="96" cy="18" r="1" fill="#4A80CC" opacity="0.25"/>
+            <!-- Cap -->
+            <rect x="34" y="22" width="24" height="14" rx="6" fill="#0D2040"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Cleaning Items</div>
+          <div class="cat-desc">Professional-grade cleaning supplies, detergents, bleach, sanitizers and hygiene products for commercial use.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- PACKAGING SOLUTIONS -->
+      <div class="cat-card cat-packaging reveal d1" data-cat="packaging">
+        <div class="cat-visual">
+          <span class="cat-badge">Packaging</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="pkg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2A2210"/><stop offset="100%" stop-color="#1A1608"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="28" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Box 1 back -->
+            <rect x="10" y="38" width="50" height="40" rx="4" fill="#3A3020"/>
+            <path d="M10 38 L35 28 L60 38" fill="#4A4028"/>
+            <path d="M60 38 L60 78 L70 68 L70 28 Z" fill="#2A2218"/>
+            <path d="M35 28 L60 38 L70 28 L45 18 Z" fill="#5A5030"/>
+            <rect x="18" y="50" width="34" height="14" rx="2" fill="rgba(255,255,255,0.08)"/>
+            <rect x="20" y="54" width="30" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <rect x="22" y="59" width="22" height="2" rx="1" fill="rgba(255,255,255,0.12)"/>
+            <!-- Box 2 front -->
+            <rect x="28" y="62" width="50" height="44" rx="4" fill="#C8A850"/>
+            <path d="M28 62 L53 52 L78 62" fill="#D4B858"/>
+            <path d="M78 62 L78 106 L88 96 L88 52 Z" fill="#A88830"/>
+            <path d="M53 52 L78 62 L88 52 L63 42 Z" fill="#E0C060"/>
+            <rect x="34" y="76" width="36" height="18" rx="2" fill="rgba(255,255,255,0.12)"/>
+            <rect x="37" y="80" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+            <rect x="39" y="87" width="24" height="2.5" rx="1.25" fill="rgba(255,255,255,0.2)"/>
+            <!-- Tape line -->
+            <rect x="28" y="80" width="50" height="4" fill="rgba(255,255,255,0.15)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Packaging Solutions</div>
+          <div class="cat-desc">Food-grade containers, bags, wraps, boxes and sustainable packaging solutions for kitchens and retail.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- MILKS -->
+      <div class="cat-card cat-milks reveal d2" data-cat="food">
+        <div class="cat-visual">
+          <span class="cat-badge">Milks</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="mlk1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#2A2A48"/><stop offset="100%" stop-color="#181830"/></linearGradient></defs>
+            <ellipse cx="50" cy="113" rx="28" ry="4" fill="rgba(0,0,0,0.3)"/>
+            <!-- Carton 1 -->
+            <rect x="10" y="30" width="32" height="78" rx="4" fill="url(#mlk1)"/>
+            <!-- Carton top fold -->
+            <path d="M10 30 L26 22 L42 30" fill="#343458"/>
+            <rect x="12" y="48" width="28" height="34" rx="2" fill="rgba(255,255,255,0.08)"/>
+            <rect x="14" y="54" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
+            <rect x="16" y="61" width="18" height="2.5" rx="1.25" fill="rgba(255,255,255,0.18)"/>
+            <rect x="16" y="67" width="20" height="2.5" rx="1.25" fill="rgba(255,255,255,0.18)"/>
+            <circle cx="26" cy="40" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <rect x="12" y="36" width="6" height="60" rx="3" fill="rgba(255,255,255,0.06)"/>
+            <!-- Carton 2 (white) -->
+            <rect x="42" y="20" width="38" height="88" rx="4" fill="#E8E8F0"/>
+            <path d="M42 20 L61 10 L80 20" fill="#F0F0F8"/>
+            <rect x="44" y="42" width="34" height="38" rx="2" fill="rgba(100,120,200,0.15)"/>
+            <rect x="47" y="48" width="28" height="3.5" rx="1.75" fill="rgba(60,80,160,0.5)"/>
+            <rect x="49" y="56" width="22" height="2.5" rx="1.25" fill="rgba(60,80,160,0.3)"/>
+            <rect x="49" y="62" width="22" height="2.5" rx="1.25" fill="rgba(60,80,160,0.3)"/>
+            <rect x="49" y="68" width="18" height="2" rx="1" fill="rgba(60,80,160,0.2)"/>
+            <!-- Red strip on white carton -->
+            <rect x="42" y="20" width="38" height="14" rx="4" fill="#C02030"/>
+            <rect x="42" y="28" width="38" height="6" fill="#C02030"/>
+            <rect x="44" y="25" width="20" height="5" rx="2.5" fill="rgba(255,255,255,0.3)"/>
+            <rect x="44" y="36" width="6" height="68" rx="3" fill="rgba(255,255,255,0.08)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Milks & Dairy</div>
+          <div class="cat-desc">UHT milk, evaporated milk, condensed milk, cream and dairy alternatives in wholesale quantities.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+      <!-- NUTS & SPICES -->
+      <div class="cat-card cat-nuts reveal d3" data-cat="food">
+        <div class="cat-visual">
+          <span class="cat-badge">Nuts & Spices</span>
+          <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="sp1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(0,0,0,0.36)"/><stop offset="25%" stop-color="rgba(255,255,255,0.2)"/><stop offset="75%" stop-color="rgba(255,255,255,0.08)"/><stop offset="100%" stop-color="rgba(0,0,0,0.4)"/></linearGradient><linearGradient id="sp-lid" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#2A2A2A"/><stop offset="100%" stop-color="#111"/></linearGradient></defs>
+            <ellipse cx="22" cy="112" rx="16" ry="3.5" fill="rgba(0,0,0,0.2)"/>
+            <ellipse cx="50" cy="112" rx="16" ry="3.5" fill="rgba(0,0,0,0.2)"/>
+            <ellipse cx="78" cy="112" rx="16" ry="3.5" fill="rgba(0,0,0,0.2)"/>
+            <!-- Jar 1 orange -->
+            <rect x="6" y="32" width="32" height="78" rx="8" fill="#D05808"/>
+            <rect x="6" y="32" width="32" height="78" rx="8" fill="url(#sp1)"/>
+            <rect x="8" y="39" width="7" height="64" rx="3.5" fill="rgba(255,255,255,0.14)"/>
+            <rect x="10" y="60" width="24" height="28" rx="3" fill="rgba(255,255,255,0.85)"/>
+            <rect x="13" y="65" width="18" height="3" rx="1.5" fill="rgba(0,0,0,0.2)"/>
+            <rect x="14" y="72" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <rect x="14" y="77" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <circle cx="22" cy="44" r="5" fill="rgba(255,255,255,0.1)"/>
+            <rect x="3" y="19" width="38" height="16" rx="6" fill="url(#sp-lid)"/>
+            <rect x="6" y="22" width="32" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+            <!-- Jar 2 green -->
+            <rect x="34" y="22" width="32" height="88" rx="8" fill="#2E7228"/>
+            <rect x="34" y="22" width="32" height="88" rx="8" fill="url(#sp1)"/>
+            <rect x="36" y="29" width="7" height="74" rx="3.5" fill="rgba(255,255,255,0.14)"/>
+            <rect x="38" y="50" width="24" height="32" rx="3" fill="rgba(255,255,255,0.85)"/>
+            <rect x="41" y="56" width="18" height="3" rx="1.5" fill="rgba(0,0,0,0.2)"/>
+            <rect x="42" y="63" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <rect x="42" y="69" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <circle cx="50" cy="36" r="5" fill="rgba(255,255,255,0.1)"/>
+            <rect x="31" y="9" width="38" height="16" rx="6" fill="url(#sp-lid)"/>
+            <rect x="34" y="12" width="32" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+            <!-- Jar 3 gold -->
+            <rect x="62" y="30" width="32" height="80" rx="8" fill="#C49010"/>
+            <rect x="62" y="30" width="32" height="80" rx="8" fill="url(#sp1)"/>
+            <rect x="64" y="37" width="7" height="66" rx="3.5" fill="rgba(255,255,255,0.14)"/>
+            <rect x="66" y="56" width="24" height="30" rx="3" fill="rgba(255,255,255,0.85)"/>
+            <rect x="69" y="62" width="18" height="3" rx="1.5" fill="rgba(0,0,0,0.2)"/>
+            <rect x="70" y="69" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <rect x="70" y="75" width="14" height="2" rx="1" fill="rgba(0,0,0,0.1)"/>
+            <circle cx="78" cy="43" r="5" fill="rgba(255,255,255,0.1)"/>
+            <rect x="59" y="17" width="38" height="16" rx="6" fill="url(#sp-lid)"/>
+            <rect x="62" y="20" width="32" height="5" rx="2.5" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+        <div class="cat-info">
+          <div class="cat-name">Nuts & Spices</div>
+          <div class="cat-desc">Whole and ground spices, herbs, blended seasonings, mixed nuts and specialty flavour enhancers for every cuisine.</div>
+          <div class="cat-link">View Category →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AND MANY MORE -->
+<section id="more-banner">
+  <div class="more-inner reveal">
+    <div class="more-card">
+      <div class="more-text-wrap">
+        <div class="more-title">And <span>Much More</span> Available on Request</div>
+        <div class="more-desc">Our full catalogue extends well beyond what is shown here. With over 3,000+ products across dozens of sub-categories, we carry everything your business needs — from baking essentials and dry goods to cutlery, paper products and specialty imports. Request our full catalogue to explore the complete range.</div>
+        <div class="more-tags">
+          <span class="more-tag">Baking Essentials</span>
+          <span class="more-tag">Dry Goods</span>
+          <span class="more-tag">Cutlery</span>
+          <span class="more-tag">Sea Salts</span>
+          <span class="more-tag">Sauces</span>
+          <span class="more-tag">Bleach</span>
+          <span class="more-tag">Paper Products</span>
+          <span class="more-tag">Specialty Imports</span>
+          <span class="more-tag">+ Many More</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0;">
+        <a href="#catalogue-cta" class="btn-primary">Request Full Catalogue &nbsp;→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOGUE CTA -->
+<section id="catalogue-cta">
+  <div class="catalogue-inner">
+    <div class="catalogue-text reveal">
+      <div class="cat-eyebrow">Request a Catalogue</div>
+      <h2 class="catalogue-h">Get the Full<br><span>Product Catalogue</span></h2>
+      <p class="catalogue-desc">Our complete product catalogue covers all 3,000+ SKUs across every category we stock. Submit your details and a representative will be in touch within 24 hours.</p>
+      <div class="catalogue-points">
+        <div class="catalogue-point">Full list of 3,000+ products and SKUs</div>
+        <div class="catalogue-point">Wholesale pricing on request</div>
+        <div class="catalogue-point">Dedicated account manager assigned</div>
+      </div>
+      <div class="catalogue-actions">
+        <a href="contact.html" class="btn-outline">Contact Us Directly</a>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="catalogue-form-card">
+        <div class="cf-title">Request the Catalogue</div>
+        <div class="cf-sub">Fill in your details below and we will send our full product catalogue to you within 24 hours.</div>
+        <div class="fg-row">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="John"></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Doe"></div>
+        </div>
+        <div class="fg"><label>Business Name</label><input type="text" placeholder="Your Company Ltd."></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="you@company.com"></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="+255 7XX XXX XXX"></div>
+        <div class="fg">
+          <label>Industry</label>
+          <select>
+            <option value="" disabled selected>Select your industry</option>
+            <option>Hotel / Lodge</option>
+            <option>Safari Camp</option>
+            <option>Restaurant</option>
+            <option>Supermarket</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button class="cf-btn" onclick="handleSubmit(this)">Send Me the Catalogue</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></div>
+        <p class="footer-tagline">Tanzania's premier FMCG wholesale and distribution partner — delivering quality across the Northern Circuit for over two decades.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/premiumsuppliesltd" target="_blank" class="f-social">IG</a>
+          <a href="https://www.facebook.com/premiumsuppliesltd" target="_blank" class="f-social">FB</a>
+          <a href="https://www.linkedin.com/company/premium-supplies-ltd" target="_blank" class="f-social">IN</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Quick Links</div>
+        <ul class="f-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <div class="f-contact">
+          <div class="f-contact-row"><span class="f-contact-label">Address</span><span>Swahili Street, Arusha, Tanzania · P.O. Box 15865</span></div>
+          <div class="f-contact-row"><span class="f-contact-label">Phone</span><div>+255 753 300 000<br>+255 754 387 123<br>+255 762 800 805</div></div>
+          <div class="f-contact-row"><span class="f-contact-label">WhatsApp</span><span>+255 762 800 805</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved. · Arusha, Tanzania</span>
+      <ul class="f-legal"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  function filterCats(btn, cat) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.cat-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = 'flex';
+        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(10px)';
+        setTimeout(() => { card.style.display = 'none'; }, 300);
+      }
+    });
+  }
+
+  function handleSubmit(btn) {
+    btn.textContent = 'Catalogue Request Sent — We\'ll be in touch within 24 hours.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = 'Send Me the Catalogue'; btn.style.background = ''; btn.disabled = false; }, 6000);
+  }
+
+  // Hamburger menu
+  // Close on link click
+  document.querySelectorAll('.mobile-nav-links a, .mobile-cta-btn').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Mobile menu
+  var ham = document.getElementById('ham-btn');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  ham.addEventListener('click', function() {
+    var isOpen = overlay.classList.toggle('show');
+    ham.querySelector('.bar1').style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+    ham.querySelector('.bar2').style.opacity = isOpen ? '0' : '1';
+    ham.querySelector('.bar3').style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      ham.querySelector('.bar1').style.transform = '';
+      ham.querySelector('.bar2').style.opacity = '1';
+      ham.querySelector('.bar3').style.transform = '';
+      document.body.style.overflow = '';
+    });
+  });
+
+</script>
+</body>
+</html>
