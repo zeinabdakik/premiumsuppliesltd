@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Quality Assurance Looks Like in FMCG Wholesale Distribution | Premium Supplies Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg: #070C18; --surface: #0D1526; --s2: #121E35; --s3: #172645;
+  --red: #C0202A; --red-hi: #D42530; --red-glow: rgba(192,32,42,0.22); --red-pale: rgba(192,32,42,0.08);
+  --white: #FFFFFF; --gray: #8896B3; --gray-2: #C5CFDF;
+  --border: rgba(255,255,255,0.07); --border-2: rgba(255,255,255,0.13);
+  --font: 'Plus Jakarta Sans', sans-serif; --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t: 0.35s var(--ease);
+}
+body { font-family: var(--font); background: var(--bg); color: var(--white); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--surface); } ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* Reading progress bar */
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--red); z-index: 2000; width: 0%; transition: width 0.1s; }
+
+/* NAV */
+nav { position: fixed; top: 3px; left: 0; right: 0; z-index: 1000; height: 72px; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; background: rgba(7,12,24,0.6); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.4s; }
+nav.scrolled { background: rgba(7,12,24,0.98); }
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 40px; width: auto; display: block; margin: auto 0; }
+.nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.65); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.25s; white-space: nowrap; }
+.nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+.nav-right { display: flex; align-items: center; gap: 0.6rem; }
+.nav-portal {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); background: transparent;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.5rem 1.1rem; border-radius: 6px; text-decoration: none;
+  transition: var(--t); white-space: nowrap;
+}
+.nav-portal:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.45); }
+.nav-cta { display: inline-flex; align-items: center; background: var(--red); color: var(--white); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: var(--t); }
+.nav-cta:hover { background: var(--red-hi); }
+
+
+/* ARTICLE HERO */
+.article-hero {
+  padding: 10rem 3rem 5rem;
+  background: var(--surface);
+  position: relative; overflow: hidden;
+}
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 100%, black 0%, transparent 60%); }
+.hero-redline { position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: linear-gradient(180deg, transparent, var(--red), transparent); }
+.article-hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+.article-back { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--gray); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem; transition: color 0.25s; padding: 0.5rem 0; }
+.article-back:hover { color: var(--white); }
+.article-back::before { content: '←'; font-size: 0.85rem; }
+.article-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.article-cat { display: inline-flex; align-items: center; background: var(--red); color: var(--white); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 100px; }
+.article-read-time { font-size: 0.72rem; color: var(--gray); font-weight: 500; }
+.article-title { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--white); line-height: 1.12; margin-bottom: 2rem; }
+.article-divider { width: 100%; height: 1px; background: var(--border-2); margin-bottom: 1.75rem; }
+.article-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.meta-author { display: flex; align-items: center; gap: 0.75rem; }
+.meta-avatar { width: 40px; height: 40px; background: var(--red); border-radius: 50%; display: grid; place-items: center; font-size: 0.72rem; font-weight: 800; color: var(--white); flex-shrink: 0; }
+.meta-name { font-size: 0.85rem; font-weight: 700; color: var(--white); display: block; }
+.meta-role { font-size: 0.7rem; color: var(--gray); display: block; margin-top: 1px; }
+
+/* FEATURED IMAGE */
+.article-image-wrap { background: var(--surface); padding: 0 3rem 3rem; }
+.article-image-inner { max-width: 860px; margin: 0 auto; }
+.article-image-inner img { width: 100%; border-radius: 12px; display: block; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+.article-image-caption { font-size: 0.72rem; color: var(--gray); text-align: center; margin-top: 0.85rem; font-style: italic; line-height: 1.6; }
+
+/* ARTICLE CONTENT */
+.article-content-wrap { padding: 5rem 3rem 3rem; }
+.article-content-inner { max-width: 680px; margin: 0 auto; }
+
+.article-content p { font-size: 1.05rem; color: var(--gray-2); line-height: 2; margin-bottom: 1.75rem; }
+.article-content p:first-child { font-size: 1.15rem; color: var(--white); font-weight: 400; line-height: 1.85; }
+.article-content h2 { font-size: 1.55rem; font-weight: 700; color: var(--white); letter-spacing: -0.025em; margin: 3.5rem 0 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.article-content h3 { font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; margin: 2.5rem 0 1rem; }
+
+.article-content blockquote {
+  margin: 2.5rem 0;
+  padding: 2rem 2.25rem;
+  background: var(--surface);
+  border-left: 4px solid var(--red);
+  border-radius: 0 12px 12px 0;
+  position: relative;
+}
+.article-content blockquote::before { content: '"'; position: absolute; top: -0.5rem; left: 1.5rem; font-size: 4rem; color: var(--red); opacity: 0.3; line-height: 1; font-family: Georgia, serif; }
+.article-content blockquote p { font-size: 1.15rem; font-style: italic; color: var(--white); margin-bottom: 0; line-height: 1.7; font-weight: 500; }
+
+.article-content ul { margin: 1.25rem 0 2rem; display: flex; flex-direction: column; gap: 0.75rem; padding-left: 0; list-style: none; }
+.article-content ul li { font-size: 1.05rem; color: var(--gray-2); line-height: 1.8; padding-left: 1.5rem; position: relative; }
+.article-content ul li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+/* Article CTA inline */
+.article-cta-inline {
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.article-cta-inline-text { font-size: 0.95rem; font-weight: 600; color: var(--white); line-height: 1.4; }
+.article-cta-inline-sub { font-size: 0.78rem; color: var(--gray); margin-top: 0.3rem; }
+.article-cta-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--red); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1.4rem; border-radius: 6px; text-decoration: none; transition: var(--t); white-space: nowrap; flex-shrink: 0; }
+.article-cta-btn:hover { background: var(--red-hi); transform: translateY(-1px); }
+
+/* MORE ARTICLES */
+.more-articles { padding: 4rem 3rem 6rem; background: var(--bg); border-top: 1px solid var(--border); }
+.more-articles-inner { max-width: 860px; margin: 0 auto; }
+.more-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red-hi); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.more-label::before { content:''; width:16px; height:2px; background:var(--red); border-radius:1px; }
+.more-title { font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: -0.02em; margin-bottom: 2rem; }
+.more-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+.more-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.6rem; transition: var(--t); }
+.more-card:hover { border-color: rgba(192,32,42,0.25); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+.more-card-cat { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red-hi); }
+.more-card-title { font-size: 0.88rem; font-weight: 700; color: var(--white); line-height: 1.4; letter-spacing: -0.01em; }
+.more-card-arrow { font-size: 0.68rem; font-weight: 700; color: var(--red-hi); margin-top: auto; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* FOOTER */
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2.5rem 3rem; }
+.footer-bottom-bar { max-width: 860px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.f-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.f-back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; color: var(--gray); text-decoration: none; letter-spacing: 0.04em; transition: color 0.25s; }
+.f-back-link:hover { color: var(--white); }
+.f-back-link::before { content: '←'; }
+
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: var(--white); }
+
+@media (max-width: 1024px) { nav { padding: 0 2rem; } .article-hero, .article-image-wrap, .article-content-wrap, .more-articles, footer { padding-left: 2rem; padding-right: 2rem; } }
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; } .nav-links { display: none; }
+  .article-hero, .article-image-wrap, .article-content-wrap, .more-articles { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .article-title { font-size: 1.8rem; }
+  .more-grid { grid-template-columns: 1fr; }
+  .article-cta-inline { flex-direction: column; align-items: flex-start; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-bottom-bar { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* ── MOBILE NAV ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 9999;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+#mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #070C18;
+  z-index: 9998;
+  flex-direction: column;
+  padding: 1rem 2rem 3rem;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+#mobile-nav-overlay.show {
+  display: flex;
+}
+.mob-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.mob-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mob-links li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-links li a:after { content: "→"; color: #8896B3; }
+.mob-bottom {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.mob-cta {
+  display: block;
+  text-align: center;
+  background: #C0202A;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.mob-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-info span { font-size: 0.78rem; color: #8896B3; }
+.mob-info a { color: #C5CFDF; text-decoration: none; font-size: 0.82rem; font-weight: 500; }
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .nav-right { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo"><img src="PS-LOGO-transparent.png" alt="Premium Supplies Ltd."></a>
+    <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html" >Products</a></li>
+    <li><a href="partners.html" >Partnerships</a></li>
+    <li><a href="blog.html" >Blog &amp; News</a></li>
+    <li><a href="careers.html" >Careers</a></li>
+  </ul>
+  <div class="nav-right"><a href="portal.html" class="nav-portal">Client Portal</a><a href="index.html#contact" class="nav-cta">Get in Touch</a></div>  <button class="hamburger" id="ham-btn" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </button>
+</nav>
+  <div id="mobile-nav-overlay">
+      <ul class="mob-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="partners.html">Partnerships</a></li>
+    <li><a href="blog.html">Blog &amp; News</a></li>
+    <li><a href="careers.html">Careers</a></li>
+  </ul>
+    <div class="mob-bottom">
+      <a href="portal.html" class="mob-portal" style="display:block;text-align:center;border:1px solid rgba(255,255,255,0.25);color:#fff;text-decoration:none;padding:0.9rem;border-radius:8px;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;font-family:var(--font);margin-bottom:0.5rem;">Client Portal</a><a href="index.html#contact" class="mob-cta">Get in Touch</a>
+      <div class="mob-info">
+        <span>Call us:</span>
+        <a href="tel:+255753300000">+255 753 300 000</a>
+        <a href="https://wa.me/255762800805">WhatsApp: +255 762 800 805</a>
+      </div>
+    </div>
+  </div>
+
+<section class="article-hero">
+  <div class="hero-grid"></div>
+  <div class="hero-redline"></div>
+  <div class="article-hero-inner">
+    <a href="blog.html" class="article-back">Back to Blog &amp; News</a>
+    <div class="article-top">
+      <div class="article-cat">Quality &amp; Standards</div>
+      <span class="article-read-time">5 min read</span>
+    </div>
+    <h1 class="article-title">What Quality Assurance Looks Like in FMCG Wholesale Distribution</h1>
+    <div class="article-divider"></div>
+    <div class="article-meta">
+      <div class="meta-author">
+        <div class="meta-avatar">PS</div>
+        <div>
+          <span class="meta-name">PREMIUM SUPPLIES LTD.</span>
+          <span class="meta-role">Editorial Team · Arusha, Tanzania</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="article-content-wrap">
+  <div class="article-content-inner">
+    <div class="article-content">
+
+      <p>In FMCG wholesale distribution, quality assurance is often misunderstood as a simple matter of checking expiry dates and ensuring products arrive undamaged. In reality, for a wholesale supplier serving demanding hospitality and retail clients, quality assurance is a far more comprehensive discipline — one that begins long before a product reaches our warehouse and continues all the way to the point of delivery.</p>
+      <blockquote><p>Our clients — hotels, lodges, safari camps and supermarkets — are serving their own customers. The quality of what we supply directly reflects on them. That responsibility is something we take seriously at every step.</p></blockquote>
+      <h2>Sourcing: Where Quality Begins</h2>
+      <p>Quality assurance starts at the point of sourcing. Before any product enters our range, we evaluate suppliers on a set of criteria that goes beyond price. We look at production standards, consistency of supply, packaging quality and the track record of the brand in markets similar to ours.</p>
+      <p>For imported products in particular, we work with established importers and direct brand relationships to ensure the products we stock are genuine, correctly stored during transit and arrive in Tanzania meeting the same standards as they left their country of origin.</p>
+      <h2>Storage and Warehouse Standards</h2>
+      <p>How a product is stored between sourcing and delivery is critical to maintaining its quality. Our warehouse operations are built around proper product categorisation, temperature-appropriate storage conditions and regular stock condition audits:</p>
+      <ul>
+        <li>Regular expiry date monitoring across all product lines</li>
+        <li>Proper separation of food and non-food product categories</li>
+        <li>Damage inspection on all incoming stock before it enters inventory</li>
+        <li>FIFO stock rotation to ensure freshness across all categories</li>
+      </ul>
+      <h2>Delivery: The Final Mile</h2>
+      <p>The final mile of delivery is where quality assurance is most visible to our clients. Damaged, poorly packed or incorrectly fulfilled orders undermine everything that has happened before in the supply chain. Our delivery process includes order verification before dispatch, appropriate packaging for transit conditions and clear communication with clients on delivery schedules.</p>
+      <div class="article-cta-inline">
+        <div><div class="article-cta-inline-text">See our full product range</div><div class="article-cta-inline-sub">Every product in our catalogue meets our quality standards</div></div>
+        <a href="products.html" class="article-cta-btn">View Our Products →</a>
+      </div>
+      <h2>Our Commitment to Our Clients</h2>
+      <p>Quality assurance in wholesale is ultimately about trust. Our clients need to know that when they place an order with Premium Supplies Ltd., what arrives will be exactly what they ordered, in the condition they expect, when they need it. That trust is built through consistent standards, honest communication and a genuine commitment to getting it right — every time.</p>
+
+    </div>
+  </div>
+</section>
+
+<section class="more-articles">
+  <div class="more-articles-inner">
+    <div class="more-label">More from our Blog</div>
+    <div class="more-title">Continue Reading</div>
+    <div class="more-grid">
+      <a href="article-eco-packaging.html" class="more-card">
+        <div class="more-card-cat">Sustainability</div>
+        <div class="more-card-title">The Shift to Eco-Friendly Packaging</div>
+        <div class="more-card-arrow">Read Article →</div>
+      </a>
+      <a href="article-supply-chain.html" class="more-card">
+        <div class="more-card-cat">Supply Chain</div>
+        <div class="more-card-title">How Reliable Supply Chains Are Transforming Tanzania's Hospitality Sector</div>
+        <div class="more-card-arrow">Read Article →</div>
+      </a>
+      <a href="article-partnerships.html" class="more-card">
+        <div class="more-card-cat">Partnerships</div>
+        <div class="more-card-title">Why Long-Term Supplier Partnerships Matter More Than Price</div>
+        <div class="more-card-arrow">Read Article →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom-bar">
+    <span class="f-copy">© 2024 Premium Supplies Ltd. T/A Megamart. All rights reserved.</span>
+    <a href="blog.html" class="f-back-link">Back to Blog &amp; News</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/255762800805" target="_blank" class="whatsapp-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    const bar = document.getElementById('progressBar');
+    const total = document.body.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / total * 100) + '%';
+  });
+
+  // Mobile menu
+  var ham = document.getElementById('ham-btn');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  ham.addEventListener('click', function() {
+    var isOpen = overlay.classList.toggle('show');
+    ham.querySelector('.bar1').style.transform = isOpen ? 'translateY(7px) rotate(45deg)' : '';
+    ham.querySelector('.bar2').style.opacity = isOpen ? '0' : '1';
+    ham.querySelector('.bar3').style.transform = isOpen ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-nav-overlay a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      overlay.classList.remove('show');
+      ham.querySelector('.bar1').style.transform = '';
+      ham.querySelector('.bar2').style.opacity = '1';
+      ham.querySelector('.bar3').style.transform = '';
+      document.body.style.overflow = '';
+    });
+  });
+
+</script>
+</body>
+</html>
